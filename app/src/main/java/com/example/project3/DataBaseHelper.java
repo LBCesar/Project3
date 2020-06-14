@@ -14,15 +14,20 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
-import static com.example.project3.MainActivity.makeData;
+//import static com.example.project3.MainActivity.makeData;
 
 public class DataBaseHelper extends AsyncTask<Void, Void, Void> {
 
-    String data = "";
+    String data = "";   // final dbmake data to pass to the MainActivity
+    String dataParsed = "";
+    String singleParsed = "";
 
     @Override
     protected Void doInBackground(Void... voids) {
+
         try {   // connect and get the content from the heroku url,
             URL url = new URL("https://thawing-beach-68207.herokuapp.com/carmakes");
             HttpURLConnection connect = (HttpURLConnection) url.openConnection();
@@ -33,21 +38,15 @@ public class DataBaseHelper extends AsyncTask<Void, Void, Void> {
             String read = "";
 
             // use a loop to read the data and put it in "data" variable
-            while(read!=null){
+            while(read != null){
                 read = bufferedReader.readLine();
                 data = data + read;
             }
-
             // needa parse this into right form
-//            JSONArray jsonArray = new JSONArray(data);
-//            for (int i =0; i<jsonArray.length();i++){
-//                JSONObject object = (JSONObject) jsonArray.get(i);
-//
-//            }
 
         } catch (IOException e) {
             e.printStackTrace();
-        }
+            }
 
         return null;
     }
@@ -56,6 +55,29 @@ public class DataBaseHelper extends AsyncTask<Void, Void, Void> {
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
 
-        MainActivity.makeData = this.data;
+        // this does get the content frm the database
+//        MainActivity.makeData = this.data;
+
+        // tryna parse the db content and put in jsonarray which will hold car objects
+        List<Car> car = new ArrayList<>();
+
+        try {
+            JSONArray jsonArray = new JSONArray(data);
+
+            for (int i=0; i < jsonArray.length(); i++){
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                Car myCar = new Car();
+                myCar.id = jsonObject.getInt("id");
+                myCar.make = jsonObject.getString("vehicle_make");
+                car.add(myCar);
+
+                MainActivity.car_make.addAll(car);
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
     }
 }

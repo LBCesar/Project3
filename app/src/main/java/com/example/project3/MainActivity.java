@@ -1,38 +1,44 @@
+/*
+    Project 3
+    Cesar G
+    Shoraj M
+ */
 package com.example.project3;
 
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    String[] MakeArray;
-
     Spinner make;
-    public static String makeData = "";
+//    public static String makeData = "";
+
+    public static List<Car> car_make = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        make = findViewById(R.id.spinner_make);
-
-        RecyclerView recyclerView =  findViewById(R.id.recylerview);
-//        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(SongUtils.SONG_ITEMS));
-
+        make = findViewById(R.id.spinnerMake);
 
         DataBaseHelper x = new DataBaseHelper();
-        x.execute();    // makeData in the Databasehelper has the right heroku values
-        // needa parse it
-        // need to use arrays
-        // also array for the spinner (drop down menu for make)
+        x.execute();
+
+        // this car_make does contain the database make elements.
+        if (!car_make.isEmpty()){
+            Toast.makeText(getApplicationContext(), "is not empty", Toast.LENGTH_LONG).show();
+        }
 
     }
 
