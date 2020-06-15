@@ -1,23 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:padding="10dip"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/txtMake"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:text="@string/make"
-        android:textStyle="bold" />
+        android:layout_marginTop="10dip"
+        android:text="Category:"
+        android:layout_marginBottom="5dp"/>
 
     <Spinner
-        android:id="@+id/spinnerMake"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:id="@+id/makeSpinner"
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:prompt="@string/spinner_title" />
 
+    <Spinner
+        android:id="@+id/modelSpinner"
+        android:layout_width="fill_parent"
+        android:layout_height="74dp"
+        android:prompt="@string/spinner_title" />
+    <Spinner
+        android:id="@+id/availableSpinner"
+        android:layout_width="fill_parent"
+        android:layout_height="74dp"
+        android:prompt="@string/spinner_title" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/carLot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>
