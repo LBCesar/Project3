@@ -82,10 +82,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         model=(Spinner)findViewById(R.id.modelSpinner);
        // availableSpinner=(Spinner)findViewById(R.id.availableSpinner);
         recyclerView =  findViewById(R.id.carLot);
-        //recyclerView.setAdapter
-               // (new SimpleItemRecyclerViewAdapter(SongUtils.SONG_ITEMS));
-        //recyclerView.setAdapter
-               // (new SimpleItemRecyclerViewAdapter(SongUtils.SONG_ITEMS));
+
 
 
         RecyclerView rvContacts = (RecyclerView) findViewById(R.id.carLot);
@@ -94,9 +91,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         rvContacts.setAdapter(adapter);
         rvContacts.setLayoutManager(new LinearLayoutManager(this));
         if (findViewById(R.id.song_detail_container) != null) {
-            //ContactsAdapter= true;
-            Toast.makeText(this, "===================", Toast.LENGTH_LONG).show();
-
             adapter.m2p();
         }
 
@@ -106,44 +100,29 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
 
-
-
-
-
-
-
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        // On selecting a spinner item
-        //Get whatever string is currently showing on the spinner.
-        //On our first run the parent will be spinner 1
-        //On the second run our parent will be spinner 2
 
-        //The recycler view is updated.
-        //There are 2 recycler classes in the program right now. Im going to choose one later
-        //I dont know which is best atm.
         String item = parent.getItemAtPosition(position).toString();
 
-        // Showing selected spinner item
-        //Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
-        //If spinner 1== Ferrari then we will set the second spinner to the list.
+        //Hard coded example.
+        //If our first spinner is ferrari.
         if(item.contentEquals("Ferrari")) {
             model.setOnItemSelectedListener(this);//We will now listen to model spinner
+            //Replace this with arraylist of models from json.
             List<String> list = new ArrayList<String>();
             list.add("f430");
             list.add("458");
             list.add("488");
+            //Add new data to the adapter.
             ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                     android.R.layout.simple_spinner_item, list);
             dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             dataAdapter.notifyDataSetChanged();
+            //This new adapter is now listening to you.
             model.setAdapter(dataAdapter);
         }
-        //IF spinner 1==Aston we will set the second spinner to the list.
-        // This second one isnt needed, this was just for testing.
-        //In our real program we will have if(item.contentEquals("Whatever code"))
-        // I think the json uses a code or ID to tell the models apart.
-        //List<String> list = new ArrayList<String>(); will be replaced by whatever is in json.
+        //Same as previous, delete later.
         if(item.contentEquals("Aston")) {
             model.setOnItemSelectedListener(this);//listening to model spinner
             List<String> list = new ArrayList<String>();
@@ -156,19 +135,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             dataAdapter2.notifyDataSetChanged();
             model.setAdapter(dataAdapter2);
         }
-
-        //I think recycler view looks more like the project prompt.
+        //This is listening to the second spinner.
+        //If we choose v8 in the second spinner you should see an updates RV.
         if(item.contentEquals("v8")) {
-            //availableSpinner.setOnItemSelectedListener(this);//listening to available spinner.
 
-            List<String> list = new ArrayList<String>();
-            list.add("We are in the 3rd level of call backs.");
-            list.add("v8");
-            list.add("valk");
-
-            //recyclerView.setAdapter
-                   // (new SimpleItemRecyclerViewAdapter(SongUtils.SONG_ITEMS));
-            //Toast.makeText(parent.getContext(), "Leaving Now", Toast.LENGTH_LONG).show();
             RecyclerView rvContacts = (RecyclerView) findViewById(R.id.carLot);
             contacts = Contact.createContactsList(010);
             ContactsAdapter adapter = new ContactsAdapter(contacts);
@@ -176,26 +146,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             rvContacts.setLayoutManager(new LinearLayoutManager(this));
 
             if (findViewById(R.id.song_detail_container) != null) {
-             //ContactsAdapter= true;
-                Toast.makeText(parent.getContext(), "===================", Toast.LENGTH_LONG).show();
-
                 adapter.m2p();
             }
-
-
-
-            //ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(this,
-            //      android.R.layout.simple_spinner_item, list);
-            //dataAdapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            //dataAdapter3.notifyDataSetChanged();
-            //availableSpinner.setAdapter(dataAdapter3);
         }
-        //Now if you pick valk for spinner 3 you will get to here.
-        //In here we create a new RV.
-        //Youll notice that the RV switches from the contacts to the old songs program.
-
-
-
     }
     public void onNothingSelected(AdapterView<?> arg0) {
         // TODO Auto-generated method stub
