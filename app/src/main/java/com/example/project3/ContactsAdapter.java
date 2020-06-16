@@ -1,6 +1,7 @@
 package com.example.project3;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -68,6 +69,31 @@ public class ContactsAdapter extends
             Button button = viewHolder.messageButton;
             button.setText(contact.isOnline() ? "Message" : "Offline");
             button.setEnabled(contact.isOnline());
+
+           // CarObject co= new CarObject();
+            //Context context = parent.getContext();
+            viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    CarObject co= new CarObject();
+                    final Intent intent;
+
+
+                    //Context context = viewHolder.getContext();
+                    Context context = v.getContext();
+                    //context.getApplicationContext();
+                    //getApplicationContext()
+                    //Intent intent = new Intent(context, carInfo.class);
+                    intent = new Intent(context, carInfo.class);
+                    // intent.putExtra(SongUtils.SONG_ID_KEY,
+                    //      holder.getAdapterPosition());
+                    intent.putExtra("myCar",co);
+                    context.startActivity(intent);
+
+                }
+            });
+
+            
         }
 
         // Returns the total count of items in the list

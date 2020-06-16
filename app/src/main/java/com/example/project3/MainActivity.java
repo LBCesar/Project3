@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //Creating the second spinner and the third spinner that will be deleted later.
         //The recycler view for our cars is also declared in oncreate.
         model=(Spinner)findViewById(R.id.modelSpinner);
-        availableSpinner=(Spinner)findViewById(R.id.availableSpinner);
+       // availableSpinner=(Spinner)findViewById(R.id.availableSpinner);
         recyclerView =  findViewById(R.id.carLot);
         //recyclerView.setAdapter
                // (new SimpleItemRecyclerViewAdapter(SongUtils.SONG_ITEMS));
@@ -108,8 +108,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //Get whatever string is currently showing on the spinner.
         //On our first run the parent will be spinner 1
         //On the second run our parent will be spinner 2
-        //On the third run our parent will be spinner 3.
-        //Once we are in spinner 3 if we choose "valk"
+
         //The recycler view is updated.
         //There are 2 recycler classes in the program right now. Im going to choose one later
         //I dont know which is best atm.
@@ -151,23 +150,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //Unless we want a spinner for the available cars.
         //I think recycler view looks more like the project prompt.
         if(item.contentEquals("v8")) {
-            availableSpinner.setOnItemSelectedListener(this);//listening to available spinner.
+            //availableSpinner.setOnItemSelectedListener(this);//listening to available spinner.
 
-            List<String> list = new ArrayList<String>();
-            list.add("We are in the 3rd level of call backs.");
-            list.add("v8");
-            list.add("valk");
-
-            ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(this,
-                    android.R.layout.simple_spinner_item, list);
-            dataAdapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            dataAdapter3.notifyDataSetChanged();
-            availableSpinner.setAdapter(dataAdapter3);
-        }
-        //Now if you pick valk for spinner 3 you will get to here.
-        //In here we create a new RV.
-        //Youll notice that the RV switches from the contacts to the old songs program.
-        if(item.contentEquals("valk")) {//IF valk was chossen in spinner 3
             List<String> list = new ArrayList<String>();
             list.add("We are in the 3rd level of call backs.");
             list.add("v8");
@@ -178,17 +162,21 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             Toast.makeText(parent.getContext(), "Leaving Now", Toast.LENGTH_LONG).show();
 
             //if (findViewById(R.id.song_detail_container) != null) {
-               // mTwoPane = true;
+            // mTwoPane = true;
             //}
 
 
 
             //ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(this,
-              //      android.R.layout.simple_spinner_item, list);
+            //      android.R.layout.simple_spinner_item, list);
             //dataAdapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             //dataAdapter3.notifyDataSetChanged();
             //availableSpinner.setAdapter(dataAdapter3);
         }
+        //Now if you pick valk for spinner 3 you will get to here.
+        //In here we create a new RV.
+        //Youll notice that the RV switches from the contacts to the old songs program.
+
 
 
     }
@@ -231,6 +219,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
          */
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
+            //Context context = itemView.getContext();
+            final CarObject co=new CarObject();
+
             holder.mItem = mValues.get(position);
             holder.mIdView.setText(String.valueOf(position + 1));
             holder.mContentView.setText(mValues.get(position).song_title);
@@ -252,10 +243,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                            //     .addToBackStack(null)
                             //    .commit();
                    // } else {
-                        Context context = v.getContext();
-                        Intent intent = new Intent(context, SongDetailActivity.class);
-                        intent.putExtra(SongUtils.SONG_ID_KEY,
-                                holder.getAdapterPosition());
+                    final Intent intent;
+
+                    Context context = v.getContext();
+                        //getApplicationContext()
+                        //Intent intent = new Intent(context, carInfo.class);
+                    intent = new Intent(context, carInfo.class);
+                       // intent.putExtra(SongUtils.SONG_ID_KEY,
+                          //      holder.getAdapterPosition());
+                    intent.putExtra("myCar",co);
                         context.startActivity(intent);
                    // }
 

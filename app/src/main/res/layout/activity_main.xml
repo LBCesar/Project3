@@ -23,11 +23,6 @@
         android:layout_width="fill_parent"
         android:layout_height="74dp"
         android:prompt="@string/spinner_title" />
-    <Spinner
-        android:id="@+id/availableSpinner"
-        android:layout_width="fill_parent"
-        android:layout_height="74dp"
-        android:prompt="@string/spinner_title" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/carLot"
