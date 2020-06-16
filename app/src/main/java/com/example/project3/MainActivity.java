@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     Spinner model;
     Spinner availableSpinner;
     RecyclerView recyclerView;
-    private boolean mTwoPane = false;
+    public boolean mTwoPane = false;
     ArrayList<Contact> contacts;
 
 
@@ -84,11 +84,21 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         recyclerView =  findViewById(R.id.carLot);
         //recyclerView.setAdapter
                // (new SimpleItemRecyclerViewAdapter(SongUtils.SONG_ITEMS));
+        //recyclerView.setAdapter
+               // (new SimpleItemRecyclerViewAdapter(SongUtils.SONG_ITEMS));
+
+
         RecyclerView rvContacts = (RecyclerView) findViewById(R.id.carLot);
-        contacts = Contact.createContactsList(20);
+        contacts = Contact.createContactsList(5);
         ContactsAdapter adapter = new ContactsAdapter(contacts);
         rvContacts.setAdapter(adapter);
         rvContacts.setLayoutManager(new LinearLayoutManager(this));
+        if (findViewById(R.id.song_detail_container) != null) {
+            //ContactsAdapter= true;
+            Toast.makeText(this, "===================", Toast.LENGTH_LONG).show();
+
+            adapter.m2p();
+        }
 
     }
 
@@ -115,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         String item = parent.getItemAtPosition(position).toString();
 
         // Showing selected spinner item
-        Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+        //Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
         //If spinner 1== Ferrari then we will set the second spinner to the list.
         if(item.contentEquals("Ferrari")) {
             model.setOnItemSelectedListener(this);//We will now listen to model spinner
@@ -146,8 +156,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             dataAdapter2.notifyDataSetChanged();
             model.setAdapter(dataAdapter2);
         }
-        //This spinner is just for testing, will be deleted later.
-        //Unless we want a spinner for the available cars.
+
         //I think recycler view looks more like the project prompt.
         if(item.contentEquals("v8")) {
             //availableSpinner.setOnItemSelectedListener(this);//listening to available spinner.
@@ -157,13 +166,21 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             list.add("v8");
             list.add("valk");
 
-            recyclerView.setAdapter
-                    (new SimpleItemRecyclerViewAdapter(SongUtils.SONG_ITEMS));
-            Toast.makeText(parent.getContext(), "Leaving Now", Toast.LENGTH_LONG).show();
+            //recyclerView.setAdapter
+                   // (new SimpleItemRecyclerViewAdapter(SongUtils.SONG_ITEMS));
+            //Toast.makeText(parent.getContext(), "Leaving Now", Toast.LENGTH_LONG).show();
+            RecyclerView rvContacts = (RecyclerView) findViewById(R.id.carLot);
+            contacts = Contact.createContactsList(010);
+            ContactsAdapter adapter = new ContactsAdapter(contacts);
+            rvContacts.setAdapter(adapter);
+            rvContacts.setLayoutManager(new LinearLayoutManager(this));
 
-            //if (findViewById(R.id.song_detail_container) != null) {
-            // mTwoPane = true;
-            //}
+            if (findViewById(R.id.song_detail_container) != null) {
+             //ContactsAdapter= true;
+                Toast.makeText(parent.getContext(), "===================", Toast.LENGTH_LONG).show();
+
+                adapter.m2p();
+            }
 
 
 
@@ -183,117 +200,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onNothingSelected(AdapterView<?> arg0) {
         // TODO Auto-generated method stub
     }
-    class SimpleItemRecyclerViewAdapter
-            extends RecyclerView.Adapter
-            <SimpleItemRecyclerViewAdapter.ViewHolder> {
-        //Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
 
-        private final List<SongUtils.Song> mValues;
-
-        SimpleItemRecyclerViewAdapter(List<SongUtils.Song> items) {
-            mValues = items;
-        }
-
-        /**
-         * This method inflates the layout for the song list.
-         * @param parent ViewGroup into which the new view will be added.
-         * @param viewType The view type of the new View.
-         * @return
-         */
-        @Override
-        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.song_list_content, parent, false);
-            return new ViewHolder(view);
-        }
-
-        /**
-         * This method implements a listener with setOnClickListener().
-         * When the user taps a song title, the code checks if mTwoPane
-         * is true, and if so uses a fragment to show the song detail.
-         * If mTwoPane is not true, it starts SongDetailActivity
-         * using an intent with extra data about which song title was selected.
-         *
-         * @param holder   ViewHolder
-         * @param position Position of the song in the array.
-         */
-        @Override
-        public void onBindViewHolder(final ViewHolder holder, int position) {
-            //Context context = itemView.getContext();
-            final CarObject co=new CarObject();
-
-            holder.mItem = mValues.get(position);
-            holder.mIdView.setText(String.valueOf(position + 1));
-            holder.mContentView.setText(mValues.get(position).song_title);
-            holder.mView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    /*
-                    Context context = v.getContext();
-                    Intent intent = new Intent(context, SongDetailActivity.class);
-                    intent.putExtra(SongUtils.SONG_ID_KEY,
-                            holder.getAdapterPosition());
-                    context.startActivity(intent);
-*/
-                    //if (mTwoPane) {
-                     //   int selectedSong = holder.getAdapterPosition();
-                      //  SongDetailFragment fragment =SongDetailFragment.newInstance(selectedSong);
-                      //  getSupportFragmentManager().beginTransaction()
-                           //     .replace(R.id.song_detail_container, fragment)
-                           //     .addToBackStack(null)
-                            //    .commit();
-                   // } else {
-                    final Intent intent;
-
-                    Context context = v.getContext();
-                        //getApplicationContext()
-                        //Intent intent = new Intent(context, carInfo.class);
-                    intent = new Intent(context, carInfo.class);
-                       // intent.putExtra(SongUtils.SONG_ID_KEY,
-                          //      holder.getAdapterPosition());
-                    intent.putExtra("myCar",co);
-                        context.startActivity(intent);
-                   // }
-
-
-
-
-
-                }
-            });
-        }
-
-        /**
-         * Get the count of song list items.
-         * @return
-         */
-        @Override
-        public int getItemCount() {
-            return mValues.size();
-        }
-
-        /**
-         * ViewHolder describes an item view and metadata about its place
-         * within the RecyclerView.
-         */
-        class ViewHolder extends RecyclerView.ViewHolder {
-            final View mView;
-            final TextView mIdView;
-            final TextView mContentView;
-            SongUtils.Song mItem;
-
-            ViewHolder(View view) {
-                super(view);
-                mView = view;
-                mIdView =  view.findViewById(R.id.id);
-                mContentView =  view.findViewById(R.id.content);
-            }
-        }
-    }
 
 } // end class MainActivity
 
+/*
 
+
+
+
+
+
+ */
 
 //class SimpleItemRecyclerViewAdapter extends RecyclerView.Adapter <SimpleItemRecyclerViewAdapter.ViewHolder> {
 //

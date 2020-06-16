@@ -2,6 +2,9 @@ package com.example.project3;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +18,7 @@ import java.util.List;
 // Note that we specify the custom ViewHolder which gives us access to our views
 public class ContactsAdapter extends
         RecyclerView.Adapter<ContactsAdapter.ViewHolder> {
+       // public boolean mTwoPane;
 
     // Provide a direct reference to each of the views within a data item
     // Used to cache the views within the item layout for fast access
@@ -37,7 +41,11 @@ public class ContactsAdapter extends
     }
         // Store a member variable for the contacts
         private List<Contact> mContacts;
-       // public ContactsAdapter(){}
+    public boolean mTwoPane;
+    public void m2p(){
+        mTwoPane=true;
+    }
+    // public ContactsAdapter(){}
         // Pass in the contact array into the constructor
         public ContactsAdapter(List<Contact> contacts) {
             //super();
@@ -59,7 +67,7 @@ public class ContactsAdapter extends
 
         // Involves populating data into the item through holder
         @Override
-        public void onBindViewHolder(ContactsAdapter.ViewHolder viewHolder, int position) {
+        public void onBindViewHolder(final ContactsAdapter.ViewHolder viewHolder, int position) {
             // Get the data model based on position
             Contact contact = mContacts.get(position);
 
@@ -78,18 +86,36 @@ public class ContactsAdapter extends
                     CarObject co= new CarObject();
                     final Intent intent;
 
+                    if (mTwoPane) {
+                        Context context = v.getContext();
 
-                    //Context context = viewHolder.getContext();
-                    Context context = v.getContext();
-                    //context.getApplicationContext();
-                    //getApplicationContext()
-                    //Intent intent = new Intent(context, carInfo.class);
-                    intent = new Intent(context, carInfo.class);
-                    // intent.putExtra(SongUtils.SONG_ID_KEY,
-                    //      holder.getAdapterPosition());
-                    intent.putExtra("myCar",co);
-                    context.startActivity(intent);
+                        int selectedSong = viewHolder.getAdapterPosition();
+                        //SongDetailFragment fragment =SongDetailFragment.newInstance(selectedSong);
+                        carInfoFragment fragment=carInfoFragment.newInstance(co,"hello");
 
+                        ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.song_detail_container, fragment)
+                                .commit();
+
+
+                       // getSupportFragmentManager().beginTransaction()
+                      //  .replace(R.id.song_detail_container, fragment)
+                       // .addToBackStack(null)
+                       //.commit();
+                     } else {
+
+
+                        //Context context = viewHolder.getContext();
+                        Context context = v.getContext();
+                        //context.getApplicationContext();
+                        //getApplicationContext()
+                        //Intent intent = new Intent(context, carInfo.class);
+                        intent = new Intent(context, carInfo.class);
+                        // intent.putExtra(SongUtils.SONG_ID_KEY,
+                        //      holder.getAdapterPosition());
+                        intent.putExtra("myCar", co);
+                        context.startActivity(intent);
+                    }
                 }
             });
 

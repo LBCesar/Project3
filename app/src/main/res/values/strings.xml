@@ -2,4 +2,6 @@
     <string name="app_name">Project3</string>
     <string name="make">Make: </string>
     <string name="spinner_title">example</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
