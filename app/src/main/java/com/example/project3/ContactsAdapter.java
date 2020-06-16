@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 // Create the basic adapter extending from RecyclerView.Adapter
@@ -26,7 +27,8 @@ public class ContactsAdapter extends
         // Your holder should contain a member variable
         // for any view that will be set as you render a row
         public TextView nameTextView;
-        public Button messageButton;
+
+        //public Button messageButton;
 
         // We also create a constructor that accepts the entire item row
         // and does the view lookups to find each subview
@@ -36,18 +38,18 @@ public class ContactsAdapter extends
             super(itemView);
 
             nameTextView = (TextView) itemView.findViewById(R.id.contact_name);
-            messageButton = (Button) itemView.findViewById(R.id.message_button);
+            //messageButton = (Button) itemView.findViewById(R.id.message_button);
         }
     }
         // Store a member variable for the contacts
-        private List<Contact> mContacts;
+        private List<CarObject> mContacts;
     public boolean mTwoPane;
     public void m2p(){
         mTwoPane=true;
     }
     // public ContactsAdapter(){}
         // Pass in the contact array into the constructor
-        public ContactsAdapter(List<Contact> contacts) {
+        public ContactsAdapter(List<CarObject> contacts) {
             //super();
             mContacts = contacts;
         }
@@ -69,14 +71,14 @@ public class ContactsAdapter extends
         @Override
         public void onBindViewHolder(final ContactsAdapter.ViewHolder viewHolder, int position) {
             // Get the data model based on position
-            Contact contact = mContacts.get(position);
+            CarObject contact = mContacts.get(position);
 
             // Set item views based on your views and data model
             TextView textView = viewHolder.nameTextView;
-            textView.setText(contact.getName());
-            Button button = viewHolder.messageButton;
-            button.setText(contact.isOnline() ? "Message" : "Offline");
-            button.setEnabled(contact.isOnline());
+            textView.setText(contact.make);
+            //Button button = viewHolder.messageButton;
+            //button.setText(contact.isOnline() ? "Message" : "Offline");
+            //button.setEnabled(contact.isOnline());
 
            // CarObject co= new CarObject();
             //Context context = parent.getContext();
@@ -90,29 +92,20 @@ public class ContactsAdapter extends
                         Context context = v.getContext();
 
                         int selectedSong = viewHolder.getAdapterPosition();
-                        //SongDetailFragment fragment =SongDetailFragment.newInstance(selectedSong);
+                        co=mContacts.get(selectedSong);
                         carInfoFragment fragment=carInfoFragment.newInstance(co,"hello");
 
                         ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.song_detail_container, fragment)
                                 .commit();
 
-
-                       // getSupportFragmentManager().beginTransaction()
-                      //  .replace(R.id.song_detail_container, fragment)
-                       // .addToBackStack(null)
-                       //.commit();
                      } else {
 
-
-                        //Context context = viewHolder.getContext();
                         Context context = v.getContext();
-                        //context.getApplicationContext();
-                        //getApplicationContext()
-                        //Intent intent = new Intent(context, carInfo.class);
+                        int selectedSong = viewHolder.getAdapterPosition();
+                        co=mContacts.get(selectedSong);
                         intent = new Intent(context, carInfo.class);
-                        // intent.putExtra(SongUtils.SONG_ID_KEY,
-                        //      holder.getAdapterPosition());
+
                         intent.putExtra("myCar", co);
                         context.startActivity(intent);
                     }

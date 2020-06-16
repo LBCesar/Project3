@@ -34,6 +34,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     RecyclerView recyclerView;
     public boolean mTwoPane = false;
     ArrayList<Contact> contacts;
+    ArrayList<CarObject>cars =new ArrayList<CarObject>();;
+    //CarObject co=new CarObject();
+
 
 
     //Spinner make;
@@ -41,6 +44,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //cars.add(co);
+        //cars.add(co);
+        //cars.add(new CarObject());
+        ///cars.add(co);
+        //cars.add(co);
+       // cars.add(co);
+        //cars.add(co);
 
         //make = findViewById(R.id.spinnerMake);
 
@@ -77,17 +87,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         make.setAdapter(dataAdapter);
 
 
-        //Creating the second spinner and the third spinner that will be deleted later.
-        //The recycler view for our cars is also declared in oncreate.
         model=(Spinner)findViewById(R.id.modelSpinner);
-       // availableSpinner=(Spinner)findViewById(R.id.availableSpinner);
-        recyclerView =  findViewById(R.id.carLot);
+
 
 
 
         RecyclerView rvContacts = (RecyclerView) findViewById(R.id.carLot);
-        contacts = Contact.createContactsList(5);
-        ContactsAdapter adapter = new ContactsAdapter(contacts);
+        //contacts = Contact.createContactsList(5);
+        //Replace this with our json car objects.
+        cars=CarObject.createCarList(5);
+        ContactsAdapter adapter = new ContactsAdapter(cars);
         rvContacts.setAdapter(adapter);
         rvContacts.setLayoutManager(new LinearLayoutManager(this));
         if (findViewById(R.id.song_detail_container) != null) {
@@ -120,6 +129,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             dataAdapter.notifyDataSetChanged();
             //This new adapter is now listening to you.
+            //onItemSlected now responds to spinner 2
             model.setAdapter(dataAdapter);
         }
         //Same as previous, delete later.
@@ -140,8 +150,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         if(item.contentEquals("v8")) {
 
             RecyclerView rvContacts = (RecyclerView) findViewById(R.id.carLot);
-            contacts = Contact.createContactsList(010);
-            ContactsAdapter adapter = new ContactsAdapter(contacts);
+            //contacts = Contact.createContactsList(010);
+            cars=CarObject.createCarList(10);
+
+            ContactsAdapter adapter = new ContactsAdapter(cars);
             rvContacts.setAdapter(adapter);
             rvContacts.setLayoutManager(new LinearLayoutManager(this));
 
