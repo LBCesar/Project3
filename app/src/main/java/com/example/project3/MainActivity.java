@@ -30,12 +30,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public static List<Car> car_make = new ArrayList<>();
     Spinner model;
-    Spinner availableSpinner;
-    RecyclerView recyclerView;
+
     public boolean mTwoPane = false;
-    ArrayList<Contact> contacts;
     ArrayList<CarObject>cars =new ArrayList<CarObject>();;
-    //CarObject co=new CarObject();
+
 
 
 
@@ -44,13 +42,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //cars.add(co);
-        //cars.add(co);
-        //cars.add(new CarObject());
-        ///cars.add(co);
-        //cars.add(co);
-       // cars.add(co);
-        //cars.add(co);
+
 
         //make = findViewById(R.id.spinnerMake);
 
@@ -95,6 +87,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         RecyclerView rvContacts = (RecyclerView) findViewById(R.id.carLot);
         //contacts = Contact.createContactsList(5);
         //Replace this with our json car objects.
+        //This should be the last step, once its in this RV it will
+        //Do the rest of the work.
         cars=CarObject.createCarList(5);
         ContactsAdapter adapter = new ContactsAdapter(cars);
         rvContacts.setAdapter(adapter);
@@ -168,63 +162,3 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
 } // end class MainActivity
-
-/*
-
-
-
-
-
-
- */
-
-//class SimpleItemRecyclerViewAdapter extends RecyclerView.Adapter <SimpleItemRecyclerViewAdapter.ViewHolder> {
-//
-//    @NonNull
-//    @Override
-//    public SimpleItemRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-//        return null;
-//    }
-//
-//    @Override
-//    public void onBindViewHolder(@NonNull SimpleItemRecyclerViewAdapter.ViewHolder viewHolder, int i) {
-//
-//    }
-//
-//    @Override
-//    public int getItemCount() {
-//        return 0;
-//    }
-//
-//
-//
-//}
-///Push Test.
-
-
-/*
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/txtMake"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:text="@string/make"
-        android:textStyle="bold" />
-
-    <Spinner
-        android:id="@+id/spinnerMake"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
-</LinearLayout>
-
- */
