@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:background="#FAF7F7"
     android:backgroundTint="#F3F0F0"
+    android:foregroundTint="#4053B8"
     android:orientation="vertical"
     android:padding="10dip">
 
@@ -11,6 +12,7 @@
         android:id="@+id/makeSpinner"
         android:layout_width="fill_parent"
         android:layout_height="80dp"
+        android:foregroundTint="#3F51B5"
         android:prompt="@string/spinner_title" />
 
     <Spinner

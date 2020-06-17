@@ -25,9 +25,11 @@ public class carInfoFragment extends Fragment {
     private TextView summary;
     private ImageView carPic;
     // TODO: Rename and change types of parameters
-    private CarObject mParam1;
+    //private CarObject mParam1;
+    private DetailCar mParam1;
     private String mParam2;
-    CarObject co = new CarObject();
+    //CarObject co = new CarObject();
+    DetailCar co=new DetailCar();
 
     public carInfoFragment() {
         // Required empty public constructor
@@ -42,7 +44,7 @@ public class carInfoFragment extends Fragment {
      * @return A new instance of fragment carInfoFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static carInfoFragment newInstance(CarObject param1, String param2) {
+    public static carInfoFragment newInstance(DetailCar param1, String param2) {
         carInfoFragment fragment = new carInfoFragment();
         Bundle args = new Bundle();
         //co=param1;
@@ -59,7 +61,7 @@ public class carInfoFragment extends Fragment {
         if (getArguments() != null) {
             //mParam1 = getArguments().getString(ARG_PARAM1);
             //mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam1 = (CarObject) getArguments().getSerializable(ARG_PARAM1);
+            mParam1 = (DetailCar) getArguments().getSerializable(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
             co = mParam1;
         }
@@ -79,11 +81,11 @@ public class carInfoFragment extends Fragment {
             summary = root.findViewById(R.id.carSummaryBig);
             carPic = root.findViewById(R.id.carPicBig);
 
-            makeModel.setText(co.make + " " + co.model);
-            price.setText(co.price);
-            date.setText(co.date);
-            summary.setText(co.description);
-            carPic.setImageResource(co.carPic);
+            //makeModel.setText(co.make + " " + co.model);
+            price.setText(Double.toString(co.price));
+            date.setText(co.vin_number);
+            summary.setText(co.veh_description);
+            //carPic.setImageResource(co.carPic);
 
 
         }

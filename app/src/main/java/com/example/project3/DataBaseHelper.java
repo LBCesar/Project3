@@ -1,6 +1,9 @@
 package com.example.project3;
 
+import android.net.Uri;
 import android.os.AsyncTask;
+import android.widget.ListAdapter;
+import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -12,24 +15,29 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-
-//import static com.example.project3.MainActivity.makeData;
 
 public class DataBaseHelper extends AsyncTask<Void, Void, Void> {
 
-    String data = "";   // final dbmake data to pass to the MainActivity
-    String dataParsed = "";
-    String singleParsed = "";
+    public int ID;
+    public String myURL;
+    public int detail;
+    String data = "";
+
+//    public static List<Car> car;
+
+    // Constructor
+    public DataBaseHelper(int id, String url, int d){
+        this.ID = id;
+        this.myURL = url;
+        this.detail = d;
+    }
 
     @Override
     protected Void doInBackground(Void... voids) {
 
-        try {   // connect and get the content from the heroku url,
-            URL url = new URL("https://thawing-beach-68207.herokuapp.com/carmakes");
+        try {   // connect and get the content from the Heroku url
+            URL url = new URL(myURL);
             HttpURLConnection connect = (HttpURLConnection) url.openConnection();
             InputStream inputStream = connect.getInputStream();
 
@@ -38,15 +46,13 @@ public class DataBaseHelper extends AsyncTask<Void, Void, Void> {
             String read = "";
 
             // use a loop to read the data and put it in "data" variable
-            while(read != null){
+            while(read!=null){
                 read = bufferedReader.readLine();
                 data = data + read;
             }
-            // needa parse this into right form
-
         } catch (IOException e) {
             e.printStackTrace();
-            }
+        }
 
         return null;
     }
@@ -55,29 +61,80 @@ public class DataBaseHelper extends AsyncTask<Void, Void, Void> {
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
 
-        // this does get the content frm the database
-//        MainActivity.makeData = this.data;
+//        car = new ArrayList<>();
 
-        // tryna parse the db content and put in jsonarray which will hold car objects
-        List<Car> car = new ArrayList<>();
+        if (ID == 0 && detail == 0){
+            try {
+                JSONArray jsonArray = new JSONArray(data);
 
-        try {
-            JSONArray jsonArray = new JSONArray(data);
+                for (int i = 0; i < jsonArray.length(); i++){
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                    Car myCar = new Car();
+                    myCar.id = jsonObject.getInt("id");
+                    myCar.make = jsonObject.getString("vehicle_make");
+//                car.add(myCar);
+                    MainActivity.newCarList.add(myCar);
+                }
 
-            for (int i=0; i < jsonArray.length(); i++){
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                Car myCar = new Car();
-                myCar.id = jsonObject.getInt("id");
-                myCar.make = jsonObject.getString("vehicle_make");
-                car.add(myCar);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }   // end if statement
 
-                MainActivity.car_make.addAll(car);
+        else if (ID != 0 && detail == 0){
+            MainActivity.carModelList.clear();
+            MainActivity.carModelList.add(new CarModel( 999, " ", " "));    // fix bug
+            try {
+                JSONArray jsonArray = new JSONArray(data);
+
+                for (int i = 0; i < jsonArray.length(); i++){
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                    CarModel myModel = new CarModel();
+                    myModel.id = jsonObject.getInt("id");
+                    myModel.model = jsonObject.getString("model");
+                    myModel.vehicle_make_id = jsonObject.getString("vehicle_make_id");
+                    MainActivity.carModelList.add(myModel);
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+//        else if (ID == 9933 && detail == 1){
+        else {
+            try {
+                JSONObject key = new JSONObject(data);
+                JSONArray jsonKey = key.getJSONArray("lists");
+
+                for (int i = 0; i < jsonKey.length(); i++) {
+                    JSONObject jsonObject = jsonKey.getJSONObject(i);
+
+                    DetailCar myDetailCar = new DetailCar();
+                    myDetailCar.color = jsonObject.getString("color");
+                    myDetailCar.created_at = jsonObject.getString("created_at");
+                    myDetailCar.id = jsonObject.getInt("id");
+                    myDetailCar.image_url = jsonObject.getString("image_url");
+                    myDetailCar.mileage = jsonObject.getInt("mileage");
+                    myDetailCar.model = jsonObject.getString("model");
+                    myDetailCar.price = jsonObject.getDouble("price");
+                    myDetailCar.veh_description = jsonObject.getString("veh_description");
+                    myDetailCar.vehicle_make = jsonObject.getString("vehicle_make");
+                    myDetailCar.vehicle_url = jsonObject.getString("vehicle_url");
+                    myDetailCar.vin_number = jsonObject.getString("vin_number");
+
+                    MainActivity.detailCarList.add(myDetailCar);
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
 
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
 
 
-    }
-}
+    } //  endPostExecute method
+
+
+} // end DataBaseHelper class

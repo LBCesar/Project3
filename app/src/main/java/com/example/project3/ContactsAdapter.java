@@ -45,14 +45,14 @@ public class ContactsAdapter extends
         }
     }
         // Store a member variable for the contacts
-        private List<CarObject> mContacts;
+        private List<DetailCar> mContacts;
     public boolean mTwoPane;
     public void m2p(){
         mTwoPane=true;
     }
     // public ContactsAdapter(){}
         // Pass in the contact array into the constructor
-        public ContactsAdapter(List<CarObject> contacts) {
+        public ContactsAdapter(List<DetailCar> contacts) {
             //super();
             mContacts = contacts;
         }
@@ -74,17 +74,19 @@ public class ContactsAdapter extends
         @Override
         public void onBindViewHolder(final ContactsAdapter.ViewHolder viewHolder, int position) {
             // Get the data model based on position
-            CarObject contact = mContacts.get(position);
+            //CarObject contact = mContacts.get(position);
+            DetailCar contact=mContacts.get(position);
 
             // Set item views based on your views and data model
             TextView textView = viewHolder.nameTextView;
-            textView.setText(contact.make);
-            viewHolder.lilCar.setImageResource(contact.carPic);
+            textView.setText(contact.model);
+            //viewHolder.lilCar.setImageResource(contact.carPic);
 
             viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    CarObject co= new CarObject();
+                    //CarObject co= new CarObject();
+                    DetailCar co=new DetailCar();
                     final Intent intent;
 
                     if (mTwoPane) {
