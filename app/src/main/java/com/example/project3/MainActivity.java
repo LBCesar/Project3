@@ -34,10 +34,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public boolean mTwoPane = false;
     ArrayList<CarObject>cars =new ArrayList<CarObject>();;
 
-
-
-
-    //Spinner make;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,14 +74,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         // attaching data adapter to spinner
         make.setAdapter(dataAdapter);
 
-
         model=(Spinner)findViewById(R.id.modelSpinner);
 
 
 
 
         RecyclerView rvContacts = (RecyclerView) findViewById(R.id.carLot);
-        //contacts = Contact.createContactsList(5);
         //Replace this with our json car objects.
         //This should be the last step, once its in this RV it will
         //Do the rest of the work.
@@ -144,7 +138,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         if(item.contentEquals("v8")) {
 
             RecyclerView rvContacts = (RecyclerView) findViewById(R.id.carLot);
-            //contacts = Contact.createContactsList(010);
+
             cars=CarObject.createCarList(10);
 
             ContactsAdapter adapter = new ContactsAdapter(cars);

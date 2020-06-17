@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class ContactsAdapter extends
         // Your holder should contain a member variable
         // for any view that will be set as you render a row
         public TextView nameTextView;
+        public ImageView lilCar;
 
         //public Button messageButton;
 
@@ -38,6 +40,7 @@ public class ContactsAdapter extends
             super(itemView);
 
             nameTextView = (TextView) itemView.findViewById(R.id.contact_name);
+            lilCar=(ImageView)itemView.findViewById(R.id.littleCar);
             //messageButton = (Button) itemView.findViewById(R.id.message_button);
         }
     }
@@ -76,12 +79,8 @@ public class ContactsAdapter extends
             // Set item views based on your views and data model
             TextView textView = viewHolder.nameTextView;
             textView.setText(contact.make);
-            //Button button = viewHolder.messageButton;
-            //button.setText(contact.isOnline() ? "Message" : "Offline");
-            //button.setEnabled(contact.isOnline());
+            viewHolder.lilCar.setImageResource(contact.carPic);
 
-           // CarObject co= new CarObject();
-            //Context context = parent.getContext();
             viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -89,6 +88,10 @@ public class ContactsAdapter extends
                     final Intent intent;
 
                     if (mTwoPane) {
+                        //carInfoFragment.java
+                        //fragment_car_info.xml
+                        //This will update our fragment and place it in the
+                        //container in activity_main.xml(w900dp)
                         Context context = v.getContext();
 
                         int selectedSong = viewHolder.getAdapterPosition();
@@ -100,7 +103,9 @@ public class ContactsAdapter extends
                                 .commit();
 
                      } else {
-
+                        //carInfo.java
+                        //activity_car_info.xml
+                        //This will open a new activity with car details.
                         Context context = v.getContext();
                         int selectedSong = viewHolder.getAdapterPosition();
                         co=mContacts.get(selectedSong);

@@ -28,15 +28,11 @@ public class carInfo extends AppCompatActivity {
         summary=findViewById(R.id.carSummary);
         carPic=findViewById(R.id.carPic);
 
-
-
-        Intent intent=getIntent();
         CarObject co=new CarObject();
 
 
         if ((CarObject) getIntent().getSerializableExtra("myCar") != null)
         {
-           // credentials =  (HashMap<String, UserData>) getIntent().getSerializableExtra("data");
             co = (CarObject) getIntent().getSerializableExtra("myCar");
             makeModel.setText(co.make+" "+co.model);
             price.setText(co.price);
