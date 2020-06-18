@@ -54,6 +54,7 @@ public class ContactsAdapter extends
         // Pass in the contact array into the constructor
         public ContactsAdapter(List<DetailCar> contacts) {
             //super();
+
             mContacts = contacts;
         }
         // Usually involves inflating a layout from XML and returning the holder

@@ -27,11 +27,11 @@ public class MainActivity extends AppCompatActivity  {
 
     Spinner make;
     //RecyclerView rvContacts;
-    public static ArrayList<Car> newCarList=new ArrayList<>();
-    public static ArrayList<CarModel> carModelList=new ArrayList<>();
-    public static ArrayList<DetailCar> detailCarList=new ArrayList<>();;
-    RecyclerView rvContacts;
-    ContactsAdapter adapter;
+    public static ArrayList<Car> newCarList;
+    public static ArrayList<CarModel> carModelList;
+    public static ArrayList<DetailCar> detailCarList;
+    public RecyclerView rvContacts;
+    public ContactsAdapter adapter2;
     //ArrayAdapter<CarModel> carModelArrayAdapter;
     //    public static String makeData = "";
     public boolean again = false;
@@ -48,14 +48,16 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        newCarList=new ArrayList<>();
+        carModelList=new ArrayList<>();
+         detailCarList=new ArrayList<>();
         //=======================================================================================
         //We need to populate the initial spinner first.
         //So in onCreate we will fill the first spinner.
         // Spinner element
         make = (Spinner) findViewById(R.id.makeSpinner);
         model = (Spinner) findViewById(R.id.modelSpinner);
-        rvContacts = findViewById(R.id.carLot);
+       // rvContacts = findViewById(R.id.carLot);
         //rvContacts.setAdapter(null);
         //rvContacts.removeAllViewsInLayout();
 
@@ -73,17 +75,30 @@ public class MainActivity extends AppCompatActivity  {
 
         ArrayAdapter<Car> adapter = new ArrayAdapter<Car>(this, android.R.layout.simple_spinner_dropdown_item, newCarList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        make.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
-        make.setAdapter(adapter);
-        //make.setSelection(0);
+
+        RecyclerView rvContacts = (RecyclerView) findViewById(R.id.carLot);
+
+        adapter2 = new ContactsAdapter(detailCarList);
+        rvContacts.setLayoutManager(new LinearLayoutManager(this));
+        adapter2.notifyDataSetChanged();
+
+        rvContacts.setAdapter(adapter2);
+
+        //adapter2.notifyDataSetChanged();
+
+        // adapter
+        if (findViewById(R.id.song_detail_container) != null) {
+            adapter2.m2p();
+        }
 
         make.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String strMake = parent.getItemAtPosition(position).toString();
                 Toast.makeText(parent.getContext(), "Make: " + strMake, Toast.LENGTH_LONG).show();
-
                 int makeId = newCarList.get(position).getId();
                 String makeURL = "https://thawing-beach-68207.herokuapp.com/carmodelmakes/" + makeId;
                 DataBaseHelper dbh2 = new DataBaseHelper(makeId, makeURL, 0);
@@ -98,7 +113,6 @@ public class MainActivity extends AppCompatActivity  {
                 carModelArrayAdapter.notifyDataSetChanged();
 
                 model.setAdapter(carModelArrayAdapter);
-
             }
 
             @Override
@@ -117,47 +131,20 @@ public class MainActivity extends AppCompatActivity  {
 
                 Toast.makeText(parent.getContext(), availableURL, Toast.LENGTH_LONG).show();
 
-                //detailCarList.clear();
 
                 DataBaseHelper dbh3 = new DataBaseHelper(0, availableURL, 1);
                 dbh3.execute();
 
-                //test = findViewById(R.id.spinner3);
-
-                // arraylist
-                // detailCarList = new ArrayList<>();
-                // detailCarList.add(new DetailCar("yellow", "xa", 111, "asd", 6445, "360", 1220.1, "asd", "asd", "asd", "asd"));
-                //rvContacts = findViewById(R.id.carLot);
-
-
-                //rvContacts.removeAllViewsInLayout();
-                //rvContacts.setAdapter(null);
-
-
                 RecyclerView rvContacts = (RecyclerView) findViewById(R.id.carLot);
 
-                //cars = CarObject.createCarList(10);
-
-                //ContactsAdapter adapter = new ContactsAdapter(cars);
-                //rvContacts.setAdapter(adapter);
-                //rvContacts.setLayoutManager(new LinearLayoutManager(this));
-
-
-                // cars = CarObject.createCarList(10);
-
                 ContactsAdapter adapter = new ContactsAdapter(detailCarList);
-                //detailCarList.clear();
-                adapter.notifyDataSetChanged();
+                rvContacts.setLayoutManager(new LinearLayoutManager(view.getContext()));
                 rvContacts.setAdapter(adapter);
-                rvContacts.setLayoutManager(new LinearLayoutManager(parent.getContext()));
-                // adapter
+
+                adapter.notifyDataSetChanged();
                 if (findViewById(R.id.song_detail_container) != null) {
                     adapter.m2p();
                 }
-                //ArrayAdapter<DetailCar> detailCarArrayAdapter = new ArrayAdapter<DetailCar>(MainActivity.this, android.R.layout.simple_spinner_dropdown_item, detailCarList);
-                //detailCarArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                //test.setAdapter(detailCarArrayAdapter);
-
 
             }
 

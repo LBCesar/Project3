@@ -108,10 +108,10 @@ public ArrayList<String> s;
             try {
                 JSONObject key = new JSONObject(data);
                 JSONArray jsonKey = key.getJSONArray("lists");
+                MainActivity.detailCarList.clear();
 
                 for (int i = 0; i < jsonKey.length(); i++) {
                     JSONObject jsonObject = jsonKey.getJSONObject(i);
-
                     DetailCar myDetailCar = new DetailCar();
                     myDetailCar.color = jsonObject.getString("color");
                     myDetailCar.created_at = jsonObject.getString("created_at");
