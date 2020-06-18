@@ -18,8 +18,7 @@ import java.util.List;
 
 // Create the basic adapter extending from RecyclerView.Adapter
 // Note that we specify the custom ViewHolder which gives us access to our views
-public class ContactsAdapter extends
-        RecyclerView.Adapter<ContactsAdapter.ViewHolder> {
+public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHolder> {
        // public boolean mTwoPane;
 
     // Provide a direct reference to each of the views within a data item
@@ -76,7 +75,7 @@ public class ContactsAdapter extends
         public void onBindViewHolder(final ContactsAdapter.ViewHolder viewHolder, int position) {
             // Get the data model based on position
             //CarObject contact = mContacts.get(position);
-            DetailCar contact=mContacts.get(position);
+            DetailCar contact = mContacts.get(position);
 
             // Set item views based on your views and data model
             TextView textView = viewHolder.nameTextView;
@@ -87,7 +86,7 @@ public class ContactsAdapter extends
                 @Override
                 public void onClick(View v) {
                     //CarObject co= new CarObject();
-                    DetailCar co=new DetailCar();
+                    DetailCar co = new DetailCar();
                     final Intent intent;
 
                     if (mTwoPane) {

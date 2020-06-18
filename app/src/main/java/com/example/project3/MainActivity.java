@@ -26,21 +26,19 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity  {
 
     Spinner make;
-    //RecyclerView rvContacts;
+    Spinner model;
+
     public static ArrayList<Car> newCarList;
     public static ArrayList<CarModel> carModelList;
     public static ArrayList<DetailCar> detailCarList;
+
+    // RecyclerView rvContacts;
     public RecyclerView rvContacts;
     public ContactsAdapter adapter2;
-    //ArrayAdapter<CarModel> carModelArrayAdapter;
-    //    public static String makeData = "";
+
     public boolean again = false;
-
-
-    public static List<Car> car_make = new ArrayList<>();
-    Spinner model;
-
     public boolean mTwoPane = false;
+
     ArrayList<CarObject> cars = new ArrayList<CarObject>();
 
     @Override
@@ -48,20 +46,20 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        newCarList=new ArrayList<>();
-        carModelList=new ArrayList<>();
-         detailCarList=new ArrayList<>();
-        //=======================================================================================
-        //We need to populate the initial spinner first.
-        //So in onCreate we will fill the first spinner.
+        newCarList = new ArrayList<>();
+        carModelList = new ArrayList<>();
+        detailCarList = new ArrayList<>();
+
+//=======================================================================================
+        // We need to populate the initial spinner first.
+        // So in onCreate we will fill the first spinner.
         // Spinner element
         make = (Spinner) findViewById(R.id.makeSpinner);
         model = (Spinner) findViewById(R.id.modelSpinner);
-       // rvContacts = findViewById(R.id.carLot);
+
+        // rvContacts = findViewById(R.id.carLot);
         //rvContacts.setAdapter(null);
         //rvContacts.removeAllViewsInLayout();
-
-
 
 //        Car car = new Car();
 //        CarModel carModel = new CarModel();
@@ -73,7 +71,7 @@ public class MainActivity extends AppCompatActivity  {
        // newCarList = new ArrayList<>();
         newCarList.add(new Car(999, " "));
 
-        ArrayAdapter<Car> adapter = new ArrayAdapter<Car>(this, android.R.layout.simple_spinner_dropdown_item, newCarList);
+        ArrayAdapter<Car> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, newCarList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         make.setAdapter(adapter);
         adapter.notifyDataSetChanged();
@@ -84,7 +82,6 @@ public class MainActivity extends AppCompatActivity  {
         adapter2 = new ContactsAdapter(detailCarList);
         rvContacts.setLayoutManager(new LinearLayoutManager(this));
         adapter2.notifyDataSetChanged();
-
         rvContacts.setAdapter(adapter2);
 
         //adapter2.notifyDataSetChanged();
@@ -99,6 +96,7 @@ public class MainActivity extends AppCompatActivity  {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String strMake = parent.getItemAtPosition(position).toString();
                 Toast.makeText(parent.getContext(), "Make: " + strMake, Toast.LENGTH_LONG).show();
+
                 int makeId = newCarList.get(position).getId();
                 String makeURL = "https://thawing-beach-68207.herokuapp.com/carmodelmakes/" + makeId;
                 DataBaseHelper dbh2 = new DataBaseHelper(makeId, makeURL, 0);
@@ -118,6 +116,7 @@ public class MainActivity extends AppCompatActivity  {
             @Override
             public void onNothingSelected(AdapterView<?> parent) { }
         });
+
         model.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -137,11 +136,14 @@ public class MainActivity extends AppCompatActivity  {
 
                 RecyclerView rvContacts = (RecyclerView) findViewById(R.id.carLot);
 
+                detailCarList.add(new DetailCar("test", "test", 9999, "test",
+                        1112, "test", 1.00, "test",
+                        "test", "test", "test"));
                 ContactsAdapter adapter = new ContactsAdapter(detailCarList);
                 rvContacts.setLayoutManager(new LinearLayoutManager(view.getContext()));
                 rvContacts.setAdapter(adapter);
-
                 adapter.notifyDataSetChanged();
+
                 if (findViewById(R.id.song_detail_container) != null) {
                     adapter.m2p();
                 }
