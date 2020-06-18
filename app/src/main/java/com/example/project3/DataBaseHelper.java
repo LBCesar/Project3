@@ -14,17 +14,19 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
 public class DataBaseHelper extends AsyncTask<Void, Void, Void> {
-
+    public boolean help=false;
     public int ID;
     public String myURL;
     public int detail;
     String data = "";
 public ArrayList<String> s;
+public ArrayList<DetailCar>dc;
 //    public static List<Car> car;
 
     // Constructor
@@ -105,10 +107,12 @@ public ArrayList<String> s;
 
 //        else if (ID == 9933 && detail == 1){
         else {
+            help=false;
+            //helper();
             try {
                 JSONObject key = new JSONObject(data);
                 JSONArray jsonKey = key.getJSONArray("lists");
-                MainActivity.detailCarList.clear();
+                //MainActivity.detailCarList.clear();
 
                 for (int i = 0; i < jsonKey.length(); i++) {
                     JSONObject jsonObject = jsonKey.getJSONObject(i);
@@ -124,18 +128,28 @@ public ArrayList<String> s;
                     myDetailCar.vehicle_make = jsonObject.getString("vehicle_make");
                     myDetailCar.vehicle_url = jsonObject.getString("vehicle_url");
                     myDetailCar.vin_number = jsonObject.getString("vin_number");
-
+                   // dc.add(myDetailCar);
                     MainActivity.detailCarList.add(myDetailCar);
                 }
 
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+            help=true;
 
         }
 
+//
+       // MainActivity.f
 
+//return dc;
     } //  endPostExecute method
+public String helper(){
+        String s="";
+        while(help==false){
 
+        }
+        return s;
+}
 
 } // end DataBaseHelper class
