@@ -66,7 +66,7 @@ public ArrayList<DetailCar>dc;
 
 //        car = new ArrayList<>();
 
-        if (ID == 0 && detail == 0){
+        if (ID == 0 && detail == 0){    // 1st link parsing
             try {
                 JSONArray jsonArray = new JSONArray(data);
 
@@ -84,7 +84,7 @@ public ArrayList<DetailCar>dc;
             }
         }   // end if statement
 
-        else if (ID != 0 && detail == 0){
+        else if (ID != 0 && detail == 0){   // 2nd link parsing
             MainActivity.carModelList.clear();
             MainActivity.carModelList.add(new CarModel( 999, " ", " "));    // fix bug
             try {
@@ -105,8 +105,50 @@ public ArrayList<DetailCar>dc;
             }
         }
 
+        // added for the 4th link parsing. this goes into moreDetailsCarList into MoreDetailsActivity class
+        else if (ID == 321 && detail == 321) {     // 4th link parsing
+            try {
+                JSONArray jsonArray = new JSONArray(data);
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                    MoreDetails moreDetails = new MoreDetails();
+                    moreDetails.carcondition_id = jsonObject.getInt("carcondition_id");
+                    moreDetails.color_id = jsonObject.getInt("color_id");
+                    moreDetails.content_local_url = jsonObject.getString("content_local_url");
+                    moreDetails.content_url = jsonObject.getString("content_url");
+                    moreDetails.created_at = jsonObject.getString("created_at");
+                    moreDetails.currency_id = jsonObject.getInt("currency_id");
+                    moreDetails.id = jsonObject.getInt("id");
+                    moreDetails.image_local_url = jsonObject.getString("image_local_url");
+                    moreDetails.image_url = jsonObject.getString("image_url");
+                    moreDetails.is_active = jsonObject.getString("is_active");
+                    moreDetails.mileage = jsonObject.getInt("mileage");
+                    moreDetails.onlinecardealer_id = jsonObject.getInt("onlinecardealer_id");
+                    moreDetails.price = jsonObject.getDouble("price");
+                    moreDetails.seller_address = jsonObject.getString("seller_address");
+                    moreDetails.seller_address_locality = jsonObject.getString("seller_address_locality");
+                    moreDetails.seller_address_region = jsonObject.getString("seller_address_region");
+                    moreDetails.seller_name = jsonObject.getString("seller_name");
+                    moreDetails.seller_telnumber = jsonObject.getString("seller_telnumber");
+                    moreDetails.updated_at = jsonObject.getString("updated_at");
+                    moreDetails.veh_description = jsonObject.getString("veh_description");
+                    moreDetails.vehicle_make_id = jsonObject.getInt("vehicle_make_id");
+                    moreDetails.vehicle_model_id = jsonObject.getInt("vehicle_model_id");
+                    moreDetails.vehicle_url = jsonObject.getString("vehicle_url");
+                    moreDetails.vin_number = jsonObject.getString("vin_number");
+                    moreDetails.zipcode_id = jsonObject.getInt("zipcode_id");
+
+                    MoreDetailsActivity.moreDetailsCarList.add(moreDetails);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+
 //        else if (ID == 9933 && detail == 1){
-        else {
+        else {              // 3rd link parsing
             help=false;
             //helper();
             try {
@@ -144,12 +186,12 @@ public ArrayList<DetailCar>dc;
 
 //return dc;
     } //  endPostExecute method
-public String helper(){
-        String s="";
-        while(help==false){
-
-        }
-        return s;
-}
+//public String helper(){
+//        String s="";
+//        while(help==false){
+//
+//        }
+//        return s;
+//}
 
 } // end DataBaseHelper class

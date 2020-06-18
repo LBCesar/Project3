@@ -74,7 +74,6 @@ public class carInfoFragment extends Fragment {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_car_info, container, false);
 
         if (getArguments() != null) {
-
             makeModel = root.findViewById(R.id.makeModelBig);
             price = root.findViewById(R.id.priceBig);
             date = root.findViewById(R.id.lastUpdatedBig);
