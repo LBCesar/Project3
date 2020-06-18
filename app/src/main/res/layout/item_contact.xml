@@ -4,25 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="350dp">
+    android:layout_height="100dp">
 
     <TextView
         android:id="@+id/contact_name"
         android:layout_width="210dp"
         android:layout_height="47dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="36dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/littleCar"
-        android:layout_width="341dp"
-        android:layout_height="218dp"
-        android:layout_marginTop="56dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
 
 </android.support.constraint.ConstraintLayout>

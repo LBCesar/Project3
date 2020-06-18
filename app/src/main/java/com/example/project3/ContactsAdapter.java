@@ -40,7 +40,7 @@ public class ContactsAdapter extends
             super(itemView);
 
             nameTextView = (TextView) itemView.findViewById(R.id.contact_name);
-            lilCar=(ImageView)itemView.findViewById(R.id.littleCar);
+           // lilCar=(ImageView)itemView.findViewById(R.id.littleCar);
             //messageButton = (Button) itemView.findViewById(R.id.message_button);
         }
     }

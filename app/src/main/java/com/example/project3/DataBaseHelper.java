@@ -16,6 +16,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class DataBaseHelper extends AsyncTask<Void, Void, Void> {
 
@@ -23,7 +24,7 @@ public class DataBaseHelper extends AsyncTask<Void, Void, Void> {
     public String myURL;
     public int detail;
     String data = "";
-
+public ArrayList<String> s;
 //    public static List<Car> car;
 
     // Constructor
