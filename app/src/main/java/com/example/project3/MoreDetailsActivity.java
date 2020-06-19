@@ -22,7 +22,7 @@ public class MoreDetailsActivity extends AppCompatActivity {
 
         Spinner s = findViewById(R.id.s);
 
-        Intent intent = getIntent();
+//        Intent intent = getIntent();
 //        String myID = intent.getStringExtra("id");
 
 

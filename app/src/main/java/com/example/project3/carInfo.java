@@ -17,6 +17,7 @@ public class carInfo extends AppCompatActivity {
     private TextView price;
     private TextView date;
     private TextView summary;
+    private TextView mileage;
     private ImageView carPic;
 
     private Button buttonMoreDetail;
@@ -28,11 +29,12 @@ public class carInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_info);
 
-        makeModel=findViewById(R.id.makeModel);
-        price=findViewById(R.id.price);
-        date=findViewById(R.id.lastUpdated);
-        summary=findViewById(R.id.carSummary);
-        carPic=findViewById(R.id.carPic);
+        makeModel = findViewById(R.id.makeModel);
+        price = findViewById(R.id.price);
+        date = findViewById(R.id.lastUpdated);
+        summary = findViewById(R.id.carSummary);
+        mileage = findViewById(R.id.mileage);
+        carPic = findViewById(R.id.carPic);
 
 
         //CarObject co=new CarObject();
@@ -40,31 +42,27 @@ public class carInfo extends AppCompatActivity {
 
         if ((DetailCar) getIntent().getSerializableExtra("myCar") != null) {
             co = (DetailCar) getIntent().getSerializableExtra("myCar");
-            makeModel.setText(" "+co.model);
-            price.setText(Double.toString(co.price));
+            makeModel.setText( co.vehicle_make + " _ " + co.model);
+            price.setText("$ " + Double.toString(co.price));
             date.setText(co.vin_number);
+            mileage.setText(" " + co.mileage);
             summary.setText(co.veh_description);
-            //carPic.setImageResource(co.carPic);
 
-//            myID = co.id;
+            //carPic.setImageResource(co.carPic);
         }
 
-
-
         // button for more detail
-        buttonMoreDetail = findViewById(R.id.btnMoreDetails);
-//        final String myID = (String) Id_for_btnDetail.getText().toString();
-
-        buttonMoreDetail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MoreDetailsActivity.class);
-//                intent.putExtra("id", myID);
-                startActivity(intent);
-            }
-        });
-
-
+//        buttonMoreDetail = findViewById(R.id.btnMoreDetails);
+////        final String myID = (String) Id_for_btnDetail.getText().toString();
+//
+//        buttonMoreDetail.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext(), MoreDetailsActivity.class);
+////                intent.putExtra("id", myID);
+//                startActivity(intent);
+//            }
+//        });
 
     }
 }

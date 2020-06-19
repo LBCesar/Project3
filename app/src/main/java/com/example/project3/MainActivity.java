@@ -84,9 +84,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
         detailCarList.add(new DetailCar("test", "test", 9999, "test",
-                1112, "test", 1.00, "test",
-                "test", "test", "test"));
-        rvt=detailCarList;
+                0000, " ", 000, "test",
+                " ", "test", "test"));
+        rvt = detailCarList;
         RecyclerView rvContacts = (RecyclerView) findViewById(R.id.carLot);
         //rvt.addAll(detailCarList);
         //detailCarList;

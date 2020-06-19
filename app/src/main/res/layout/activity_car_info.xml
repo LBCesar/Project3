@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,149 +8,172 @@
     android:background="#B1EDE8"
     tools:context=".carInfo">
 
-    <TextView
-        android:id="@+id/makeModel"
-        android:layout_width="211dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="16dp"
-        android:background="#D3F9B5"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/price"
-        android:layout_width="211dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="68dp"
-        android:background="#D3F9B5"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp" >
 
-    <ImageView
-        android:id="@+id/carPic"
-        android:layout_width="214dp"
-        android:layout_height="159dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="144dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+            <LinearLayout
+                android:id="@+id/layout1"
+                android:layout_marginTop="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true">
 
-    <TextView
-        android:id="@+id/carSummary"
-        android:layout_width="393dp"
-        android:layout_height="148dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="452dp"
-        android:background="#D3F9B5"
-        android:text="this is a test"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="4dp"
+                    android:text="Make_Model: "
+                    android:textColor="#E86B2BC5"
+                    android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="Model: "
-        android:textColor="#E86B2BC5"
-        android:textSize="18dp"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="16dp" />
+                <TextView
+                    android:id="@+id/makeModel"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="#D3F9B5"
+                    android:paddingLeft="10dp"
+                    android:text="TextView" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
-        android:text="Price: "
-        android:textColor="#E86B2BC5"
-        android:textSize="18dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:ignore="MissingConstraints" />
+            </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="128dp"
-        android:text="Image: "
-        android:textColor="#E86B2BC5"
-        android:textSize="18dp"
-        app:layout_constraintEnd_toStartOf="@+id/carPic"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView"
-        tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="312dp"
-        android:text="Location:"
-        android:textColor="#E86B2BC5"
-        android:textSize="18dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="60dp"
+                android:layout_centerHorizontal="true">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="340dp"
-        android:text="VIN: "
-        android:textColor="#E86B2BC5"
-        android:textSize="18dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView"
-        tools:ignore="MissingConstraints" />
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Price: "
+                    android:textColor="#E86B2BC5"
+                    android:textSize="19dp"
+                    android:paddingEnd="42.5dp"/>
 
-    <TextView
-        android:id="@+id/lastUpdated"
-        android:layout_width="211dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="356dp"
-        android:background="#D3F9B5"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="8dp"
+                    android:background="#D3F9B5"
+                    android:textColor="#DC0F60"
+                    android:textSize="22dp"
+                    android:text="TextView" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
-        android:text="Description: "
-        android:textColor="#E86B2BC5"
-        android:textSize="18dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lastUpdated"
-        tools:ignore="MissingConstraints" />
+            </LinearLayout>
 
-    <Button
-        android:id="@+id/btnMoreDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="46dp"
-        android:text="Click for More Details"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carSummary"
-        app:layout_constraintVertical_bias="1.0" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="110dp"
+                android:layout_centerHorizontal="true">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Image: "
+                    android:textColor="#E86B2BC5"
+                    android:textSize="18dp" />
+
+                <ImageView
+                    android:id="@+id/carPic"
+                    android:layout_width="match_parent"
+                    android:layout_height="159dp"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="280dp"
+                android:layout_centerHorizontal="true">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mileage:"
+                    android:textColor="#E86B2BC5"
+                    android:textSize="18dp"
+                    android:paddingEnd="38dp"
+                    tools:ignore="RtlSymmetry" />
+
+                <TextView
+                    android:id="@+id/mileage"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="#D3F9B5"
+                    android:paddingLeft="10dp"
+                    android:text="TextView" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="320dp"
+                android:layout_centerHorizontal="true">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="68dp"
+                    android:text="VIN: "
+                    android:textColor="#E86B2BC5"
+                    android:textSize="18sp"
+                    tools:ignore="RtlSymmetry" />
+
+                <TextView
+                    android:id="@+id/lastUpdated"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="#D3F9B5"
+                    android:paddingLeft="10dp"
+                    android:text="TextView" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="360dp"
+                android:layout_centerHorizontal="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Description:"
+                    android:textColor="#E86B2BC5"
+                    android:textSize="18dp"
+                    android:paddingEnd="12dp" />
+
+                <TextView
+                    android:id="@+id/carSummary"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="#D3F9B5"
+                    android:paddingLeft="10dp"
+                    android:text="TextView" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
 </android.support.constraint.ConstraintLayout>
