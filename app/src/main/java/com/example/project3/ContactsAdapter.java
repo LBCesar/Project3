@@ -27,7 +27,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
         // Your holder should contain a member variable
         // for any view that will be set as you render a row
         public TextView nameTextView;
-        public ImageView lilCar;
+       // public ImageView lilCar;
 
         //public Button messageButton;
 

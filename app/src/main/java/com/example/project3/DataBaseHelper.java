@@ -49,28 +49,18 @@ public ArrayList<DetailCar>dc;
             String read = "";
 
             // use a loop to read the data and put it in "data" variable
-            while(read!=null){
+            while (read != null) {
                 read = bufferedReader.readLine();
                 data = data + read;
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return null;
-    }
-
-    @Override
-    protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
-
-//        car = new ArrayList<>();
-
-        if (ID == 0 && detail == 0){
+        if (ID == 0 && detail == 0) {
             try {
                 JSONArray jsonArray = new JSONArray(data);
 
-                for (int i = 0; i < jsonArray.length(); i++){
+                for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                     Car myCar = new Car();
                     myCar.id = jsonObject.getInt("id");
@@ -84,13 +74,13 @@ public ArrayList<DetailCar>dc;
             }
         }   // end if statement
 
-        else if (ID != 0 && detail == 0){
+        else if (ID != 0 && detail == 0) {
             MainActivity.carModelList.clear();
-            MainActivity.carModelList.add(new CarModel( 999, " ", " "));    // fix bug
+            MainActivity.carModelList.add(new CarModel(999, " ", " "));    // fix bug
             try {
                 JSONArray jsonArray = new JSONArray(data);
 
-                for (int i = 0; i < jsonArray.length(); i++){
+                for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
 
                     CarModel myModel = new CarModel();
@@ -107,12 +97,12 @@ public ArrayList<DetailCar>dc;
 
 //        else if (ID == 9933 && detail == 1){
         else {
-            help=false;
+            help = false;
             //helper();
             try {
                 JSONObject key = new JSONObject(data);
                 JSONArray jsonKey = key.getJSONArray("lists");
-                //MainActivity.detailCarList.clear();
+                MainActivity.detailCarList.clear();
 
                 for (int i = 0; i < jsonKey.length(); i++) {
                     JSONObject jsonObject = jsonKey.getJSONObject(i);
@@ -128,14 +118,26 @@ public ArrayList<DetailCar>dc;
                     myDetailCar.vehicle_make = jsonObject.getString("vehicle_make");
                     myDetailCar.vehicle_url = jsonObject.getString("vehicle_url");
                     myDetailCar.vin_number = jsonObject.getString("vin_number");
-                   // dc.add(myDetailCar);
+                    // dc.add(myDetailCar);
                     MainActivity.detailCarList.add(myDetailCar);
                 }
 
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            help=true;
+            help = true;
+        }
+            return null;
+
+    }
+
+    @Override
+    protected void onPostExecute(Void aVoid) {
+        super.onPostExecute(aVoid);
+
+//        car = new ArrayList<>();
+
+
 
         }
 
@@ -143,7 +145,7 @@ public ArrayList<DetailCar>dc;
        // MainActivity.f
 
 //return dc;
-    } //  endPostExecute method
+    //  endPostExecute method
 public String helper(){
         String s="";
         while(help==false){
