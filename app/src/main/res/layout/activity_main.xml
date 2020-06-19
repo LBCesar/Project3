@@ -2,16 +2,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="#FAF7F7"
-    android:backgroundTint="#F3F0F0"
-    android:foregroundTint="#4053B8"
     android:orientation="vertical"
     android:padding="10dip">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CarApp  "
+        android:textColor="#E86B2BC5"
+        android:textAlignment= "center"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Make: "
+        android:layout_marginTop="20dp"
+        android:textColor="#0F1108"
         android:textStyle="normal"
         android:textSize="20sp" />
 
@@ -19,6 +27,7 @@
         android:id="@+id/makeSpinner"
         android:layout_width="fill_parent"
         android:layout_height="40dp"
+        android:background="#D3F9B5"
         android:foregroundTint="#3F51B5"
         android:prompt="@string/spinner_title" />
 
@@ -26,32 +35,38 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Model: "
-        android:paddingTop="10dp"
+        android:layout_marginTop="20dp"
+        android:textColor="#0F1108"
         android:textStyle="normal"
         android:textSize="20sp" />
 
     <Spinner
         android:id="@+id/modelSpinner"
         android:layout_width="fill_parent"
+        android:background="#D3F9B5"
         android:layout_height="40dp"
         android:prompt="@string/spinner_title" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Available Cars: "
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+        android:textColor="#0F1108"
+        android:text="List of available cars: "
+        android:layout_marginTop="20dp"
         android:textStyle="normal"
         android:textSize="20sp" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/carLot"
         android:layout_width="match_parent"
-        android:background="@color/colorPrimaryDark"
-        android:layout_height="499dp"
+        android:layout_height="431dp"
+        android:layout_marginTop="5dp"
+        android:background="#B1EDE8"
         android:scrollbarSize="15dp"
         android:scrollbarThumbVertical="@android:color/darker_gray"
         android:scrollbars="vertical" />
 
 </LinearLayout>
+
+
+<!--    android:background="#086788"-->

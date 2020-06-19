@@ -181,8 +181,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(parent.getContext(), "Parent:"+parent.getId(), Toast.LENGTH_LONG).show();
-        Toast.makeText(parent.getContext(), "Spinner:"+R.id.makeSpinner, Toast.LENGTH_LONG).show();
+//        Toast.makeText(parent.getContext(), "Parent:"+parent.getId(), Toast.LENGTH_LONG).show();
+//        Toast.makeText(parent.getContext(), "Spinner:"+R.id.makeSpinner, Toast.LENGTH_LONG).show();
         String item = parent.getItemAtPosition(position).toString();
         /*
         RecyclerView rvContacts2 = (RecyclerView) findViewById(R.id.carLot);
@@ -222,12 +222,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             carModelArrayAdapter.notifyDataSetChanged();
 
             model.setAdapter(carModelArrayAdapter);
-
         }
+
         if(parent.getId()==R.id.modelSpinner){
 
-            Toast.makeText(parent.getContext(), "Parent:"+parent.getId(), Toast.LENGTH_LONG).show();
-            Toast.makeText(parent.getContext(), "Spinner:"+R.id.modelSpinner, Toast.LENGTH_LONG).show();
+//            Toast.makeText(parent.getContext(), "Parent:"+parent.getId(), Toast.LENGTH_LONG).show();
+//            Toast.makeText(parent.getContext(), "Spinner:"+R.id.modelSpinner, Toast.LENGTH_LONG).show();
             String strMake = parent.getItemAtPosition(position).toString();
             //Toast.makeText(parent.getContext(), "Model: " + strMake, Toast.LENGTH_LONG).show();
 
@@ -235,7 +235,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             int availableModel_id = carModelList.get(position).getId();
             String availableURL = "https://thawing-beach-68207.herokuapp.com/cars/" + availableMake_id + "/" + availableModel_id + "/92603";
 
-            Toast.makeText(parent.getContext(), availableURL, Toast.LENGTH_LONG).show();
+//            Toast.makeText(parent.getContext(), availableURL, Toast.LENGTH_LONG).show();
 
 
             DataBaseHelper dbh3 = new DataBaseHelper(0, availableURL, 1);

@@ -53,9 +53,9 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
         // Pass in the contact array into the constructor
         public ContactsAdapter(List<DetailCar> contacts) {
             //super();
-
             mContacts = contacts;
         }
+
         // Usually involves inflating a layout from XML and returning the holder
         @Override
         public ContactsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -116,6 +116,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
                         intent.putExtra("myCar", co);
                         context.startActivity(intent);
                     }
+
                 }
             });
 
