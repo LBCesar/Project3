@@ -83,9 +83,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         make.setOnItemSelectedListener(this);
 
 
-        detailCarList.add(new DetailCar("test", "test", 9999, "test",
-                0000, " ", 000, "test",
-                " ", "test", "test"));
+//        detailCarList.add(new DetailCar(" ", "test", 9999, " ",
+//                0000, " ", null, "test",
+//                " ", "test", "test"));
+
         rvt = detailCarList;
         RecyclerView rvContacts = (RecyclerView) findViewById(R.id.carLot);
         //rvt.addAll(detailCarList);

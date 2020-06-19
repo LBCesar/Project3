@@ -79,7 +79,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
 
             // Set item views based on your views and data model
             TextView textView = viewHolder.nameTextView;
-            textView.setText(contact.model);
+            textView.setText(contact.model + "(" + contact.color + ")" + " $" + contact.price);
             //viewHolder.lilCar.setImageResource(contact.carPic);
 
             viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -110,7 +110,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
                         //This will open a new activity with car details.
                         Context context = v.getContext();
                         int selectedSong = viewHolder.getAdapterPosition();
-                        co=mContacts.get(selectedSong);
+                        co = mContacts.get(selectedSong);
                         intent = new Intent(context, carInfo.class);
 
                         intent.putExtra("myCar", co);

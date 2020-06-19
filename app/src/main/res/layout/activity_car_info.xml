@@ -28,10 +28,10 @@
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingEnd="4dp"
-                    android:text="Make_Model: "
+                    android:paddingEnd="42dp"
+                    android:text="Model: "
                     android:textColor="#E86B2BC5"
-                    android:textSize="16sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/makeModel"
@@ -40,6 +40,7 @@
                     android:background="#D3F9B5"
                     android:paddingLeft="10dp"
                     android:textSize="16dp"
+                    android:textColor="#0F1108"
                     android:text="TextView" />
 
             </LinearLayout>
@@ -57,17 +58,18 @@
                     android:layout_height="wrap_content"
                     android:text="Price: "
                     android:textColor="#E86B2BC5"
-                    android:textSize="19dp"
+                    android:textSize="18dp"
                     android:paddingEnd="42.5dp"/>
 
                 <TextView
                     android:id="@+id/price"
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="35dp"
+                    android:paddingLeft="10dp"
                     android:layout_marginLeft="8dp"
                     android:background="#D3F9B5"
                     android:textColor="#DC0F60"
-                    android:textSize="22dp"
+                    android:textSize="25dp"
                     android:text="TextView" />
 
             </LinearLayout>
@@ -118,6 +120,7 @@
                     android:background="#D3F9B5"
                     android:paddingLeft="10dp"
                     android:textSize="16dp"
+                    android:textColor="#0F1108"
                     android:text="TextView" />
             </LinearLayout>
 
@@ -144,6 +147,7 @@
                     android:background="#D3F9B5"
                     android:paddingLeft="10dp"
                     android:textSize="16dp"
+                    android:textColor="#0F1108"
                     android:text="TextView" />
 
             </LinearLayout>
@@ -169,6 +173,7 @@
                     android:background="#D3F9B5"
                     android:paddingLeft="10dp"
                     android:textSize="16dp"
+                    android:textColor="#0F1108"
                     android:text="TextView" />
 
             </LinearLayout>

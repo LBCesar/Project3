@@ -43,9 +43,9 @@ public class carInfo extends AppCompatActivity {
         if ((DetailCar) getIntent().getSerializableExtra("myCar") != null) {
             co = (DetailCar) getIntent().getSerializableExtra("myCar");
             makeModel.setText( co.vehicle_make + " _ " + co.model);
-            price.setText("$ " + Double.toString(co.price));
+            price.setText("$ " + Double.toString(co.price) + "0");
             date.setText(co.vin_number);
-            mileage.setText(" " + co.mileage);
+            mileage.setText(" " + co.mileage + " miles");
             summary.setText(co.veh_description);
 
             //carPic.setImageResource(co.carPic);
