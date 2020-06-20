@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import org.w3c.dom.Text;
 
 public class carInfo extends AppCompatActivity {
@@ -34,6 +36,7 @@ public class carInfo extends AppCompatActivity {
         date = findViewById(R.id.lastUpdated);
         summary = findViewById(R.id.carSummary);
         mileage = findViewById(R.id.mileage);
+
         carPic = findViewById(R.id.carPic);
 
 
@@ -48,6 +51,10 @@ public class carInfo extends AppCompatActivity {
             mileage.setText(" " + co.mileage + " miles");
             summary.setText(co.veh_description);
 
+            Picasso.get()
+                    .load("https://i.imgur.com/gwy9G6s.jpg")
+                    .resize(600,600)
+                    .into(carPic);
             //carPic.setImageResource(co.carPic);
         }
 

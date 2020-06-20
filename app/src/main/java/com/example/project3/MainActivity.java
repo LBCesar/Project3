@@ -20,6 +20,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -54,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 //        carModelList = new ArrayList<>();
 //        detailCarList = new ArrayList<>();
 //        rvt=new ArrayList<>();
-
 //=======================================================================================
         // We need to populate the initial spinner first.
         // So in onCreate we will fill the first spinner.
