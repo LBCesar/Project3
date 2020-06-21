@@ -6,53 +6,273 @@
     android:layout_height="match_parent"
     tools:context=".carInfo">
 
-    <TextView
-        android:id="@+id/makeModelBig"
-        android:layout_width="211dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
+    <RelativeLayout
+        android:id="@+id/fragment_car_layout1"
+        android:layout_width="400dp"
+        android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/priceBig"
-        android:layout_width="210dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="68dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:id="@+id/fragment_car_layout1a"
+            android:layout_marginTop="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp">
 
-    <ImageView
-        android:id="@+id/carPicBig"
-        android:layout_width="214dp"
-        android:layout_height="159dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="144dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Model: "
+                android:textColor="#E86B2BC5"
+                android:textSize="20sp"/>
 
-    <TextView
-        android:id="@+id/carSummaryBig"
-        android:layout_width="296dp"
-        android:layout_height="291dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="424dp"
-        android:text="this is a test"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/makeModelBig"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50dp"
+                android:paddingLeft="5dp"
+                android:text="TextView" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/lastUpdatedBig"
-        android:layout_width="180dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="372dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/fragment_car_layout1b"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:layout_below="@id/fragment_car_layout1a">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date: "
+                android:textColor="#E86B2BC5"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/lastUpdatedBig"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="63dp"
+                android:paddingLeft="5dp"
+                android:text="TextView" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/fragment_car_layout1c"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:layout_below="@id/fragment_car_layout1b">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mileage: "
+                android:textColor="#E86B2BC5"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/mileageBig"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="35dp"
+                android:paddingLeft="5dp"
+                android:text="TextView" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/fragment_car_layout1d"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:layout_below="@id/fragment_car_layout1c">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VIN Number:"
+                android:textColor="#E86B2BC5"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/vinBig"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="0dp"
+                android:paddingLeft="5dp"
+                android:text="TextView" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/fragment_car_layout1e"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:layout_below="@id/fragment_car_layout1d">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description:"
+                android:textColor="#E86B2BC5"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/carSummaryBig"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:paddingLeft="7dp"
+                android:paddingRight="7dp"
+                android:text="This is a shit" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/fragment_car_layout1f"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:layout_below="@id/fragment_car_layout1e"
+            tools:ignore="RtlSymmetry">
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:paddingLeft="7dp"
+                android:paddingRight="7dp"
+                android:text="REst of the shit is a shit shdioa
+                nsondqwldinalsndilansdlnlasndlknas
+                nsondqwldinalsndilansdlnlasndlknas
+                nsondqwldinalsndilansdlnlasndlknas" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="283dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price: "
+            android:textColor="#E86B2BC5"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/priceBig"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="end"
+            android:text="TextView"
+            android:textColor="#E9CF1A1A"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/carPicBig"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:srcCompat="@tools:sample/avatars" />
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--    Original Working-->
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".carInfo">-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/makeModelBig"-->
+<!--        android:layout_width="211dp"-->
+<!--        android:layout_height="35dp"-->
+<!--        android:layout_marginStart="88dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:text="TextView"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/priceBig"-->
+<!--        android:layout_width="210dp"-->
+<!--        android:layout_height="47dp"-->
+<!--        android:layout_marginStart="92dp"-->
+<!--        android:layout_marginTop="68dp"-->
+<!--        android:text="TextView"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/carPicBig"-->
+<!--        android:layout_width="214dp"-->
+<!--        android:layout_height="159dp"-->
+<!--        android:layout_marginStart="92dp"-->
+<!--        android:layout_marginTop="144dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        tools:srcCompat="@tools:sample/avatars" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/carSummaryBig"-->
+<!--        android:layout_width="296dp"-->
+<!--        android:layout_height="291dp"-->
+<!--        android:layout_marginStart="56dp"-->
+<!--        android:layout_marginTop="424dp"-->
+<!--        android:text="this is a test"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/lastUpdatedBig"-->
+<!--        android:layout_width="180dp"-->
+<!--        android:layout_height="29dp"-->
+<!--        android:layout_marginStart="104dp"-->
+<!--        android:layout_marginTop="372dp"-->
+<!--        android:text="TextView"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+<!--</android.support.constraint.ConstraintLayout>-->

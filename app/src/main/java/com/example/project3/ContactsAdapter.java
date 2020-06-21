@@ -106,15 +106,14 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
                     Context context = v.getContext();
 
                     int selectedSong = viewHolder.getAdapterPosition();
-                    co=mContacts.get(selectedSong);
-                    carInfoFragment fragment=carInfoFragment.newInstance(co,"hello");
+                    co = mContacts.get(selectedSong);
+                    carInfoFragment fragment=carInfoFragment.newInstance(co, "hello");
 
                     ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
                             .replace(R.id.song_detail_container, fragment)
                             .commit();
 
                  } else {
-
                     /*
                         carInfo.java
                         activity_car_info.xml

@@ -11,7 +11,7 @@
         android:text="CarApp  "
         android:textColor="#E86B2BC5"
         android:textAlignment= "center"
-        android:textSize="30sp"
+        android:textSize="35sp"
         android:textStyle="bold" />
 
     <TextView
