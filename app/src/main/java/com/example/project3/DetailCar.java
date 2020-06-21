@@ -1,8 +1,22 @@
 package com.example.project3;
 
 import java.io.Serializable;
+import java.text.NumberFormat;
+import java.util.Locale;
 
+/*
+    This class contains an vehicle elements which are
+    retrieved from the 3rd provided url.
+    DetailedCar objects will be stored in the ArrayList
+
+    url: https://thawing-beach-68207.herokuapp.com/cars/<make>/<model>/<zipcode>
+    <make>   : vehicle_make
+    <model>  : vehicle_model
+    <zipcode>: will always remain as <92603>
+ */
 public class DetailCar implements Serializable {
+
+    // initialize all the variables listed in the url
     public String color;
     public String created_at;
     public int id;
@@ -15,11 +29,10 @@ public class DetailCar implements Serializable {
     public String vehicle_url;
     public String vin_number;
 
-    public DetailCar(){
+    // An empty constructor
+    public DetailCar(){ }
 
-    }
-
-    // constructor
+    // constructor with all parameters
     public DetailCar(String color, String created_at, int id, String image_url,
                      int mileage, String model, double price, String veh_description,
                      String vehicle_make, String vehicle_url, String vin_number) {
@@ -36,6 +49,7 @@ public class DetailCar implements Serializable {
         this.vin_number = vin_number;
     }
 
+    // All the getter methods to retrive when required
     public String getColor() {
         return color;
     }
@@ -60,9 +74,17 @@ public class DetailCar implements Serializable {
         return model;
     }
 
-    public double getPrice() {
-        return price;
+    public String getPrice() {
+//        return price;
+        return NumberFormat.getCurrencyInstance(new Locale("en", "US"))
+                .format(price);
     }
+
+//    public double getPrice() {
+////        return price;
+//        return NumberFormat.getCurrencyInstance(new Locale("en", "US"))
+//                .format(price);
+//    }
 
     public String getVeh_description() {
         return veh_description;
@@ -82,12 +104,7 @@ public class DetailCar implements Serializable {
 
     @Override
     public String toString() {
-//        return "DetailCar{" +
-//                " ID = " + id +
-//                ", Make = '" + vehicle_make + '\'' +
-//                ", Price = &" + price +
-//                ", Created = '" + created_at + '\'' +
-//                '}';
         return model;
     }
+
 }   // end class

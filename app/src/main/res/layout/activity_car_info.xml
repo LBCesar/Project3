@@ -20,6 +20,7 @@
             <LinearLayout
                 android:id="@+id/layout1"
                 android:layout_marginTop="25dp"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true">
@@ -31,7 +32,8 @@
                     android:paddingEnd="42dp"
                     android:text="Model: "
                     android:textColor="#E86B2BC5"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    tools:ignore="RtlSymmetry" />
 
                 <TextView
                     android:id="@+id/makeModel"
@@ -39,17 +41,18 @@
                     android:layout_height="30dp"
                     android:background="#D3F9B5"
                     android:paddingLeft="10dp"
-                    android:textSize="16dp"
+                    android:textSize="16sp"
                     android:textColor="#0F1108"
                     android:text="TextView" />
-
             </LinearLayout>
 
 
             <LinearLayout
+                android:id="@+id/layout2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="65dp"
+                android:layout_below="@id/layout1"
+                android:layout_marginTop="10dp"
                 android:layout_centerHorizontal="true">
 
                 <TextView
@@ -58,49 +61,46 @@
                     android:layout_height="wrap_content"
                     android:text="Price: "
                     android:textColor="#E86B2BC5"
-                    android:textSize="18dp"
-                    android:paddingEnd="42.5dp"/>
+                    android:textSize="18sp"
+                    android:paddingEnd="42.5dp"
+                    tools:ignore="RtlSymmetry" />
 
                 <TextView
                     android:id="@+id/price"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
-                    android:paddingLeft="10dp"
-                    android:layout_marginLeft="8dp"
+                    android:paddingStart="10dp"
+                    android:layout_marginStart="8dp"
                     android:background="#D3F9B5"
                     android:textColor="#DC0F60"
-                    android:textSize="25dp"
+                    android:textSize="25sp"
                     android:text="TextView" />
-
             </LinearLayout>
 
 
             <LinearLayout
+                android:id="@+id/layout3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="110dp"
-                android:layout_centerHorizontal="true">
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Image: "
-                    android:textColor="#E86B2BC5"
-                    android:textSize="18dp" />
+                android:layout_below="@id/layout2"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_centerHorizontal="true"
+                tools:ignore="UseCompoundDrawables">
 
                 <ImageView
                     android:id="@+id/carPic"
                     android:layout_width="match_parent"
-                    android:layout_height="159dp"
+                    android:layout_height="350dp"
                     tools:srcCompat="@tools:sample/avatars" />
-
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layout4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="280dp"
+                android:layout_below="@id/layout3"
+                android:layout_marginTop="10dp"
                 android:layout_centerHorizontal="true">
 
                 <TextView
@@ -109,7 +109,7 @@
                     android:layout_height="wrap_content"
                     android:text="Mileage:"
                     android:textColor="#E86B2BC5"
-                    android:textSize="18dp"
+                    android:textSize="18sp"
                     android:paddingEnd="38dp"
                     tools:ignore="RtlSymmetry" />
 
@@ -119,15 +119,17 @@
                     android:layout_height="30dp"
                     android:background="#D3F9B5"
                     android:paddingLeft="10dp"
-                    android:textSize="16dp"
+                    android:textSize="18sp"
                     android:textColor="#0F1108"
                     android:text="TextView" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layout5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="320dp"
+                android:layout_below="@id/layout4"
+                android:layout_marginTop="10dp"
                 android:layout_centerHorizontal="true">
 
                 <TextView
@@ -146,16 +148,17 @@
                     android:layout_height="30dp"
                     android:background="#D3F9B5"
                     android:paddingLeft="10dp"
-                    android:textSize="16dp"
+                    android:textSize="18sp"
                     android:textColor="#0F1108"
                     android:text="TextView" />
-
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layout6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="360dp"
+                android:layout_below="@id/layout5"
+                android:layout_marginTop="10dp"
                 android:layout_centerHorizontal="true">
 
                 <TextView
@@ -163,23 +166,30 @@
                     android:layout_height="wrap_content"
                     android:text="Description:"
                     android:textColor="#E86B2BC5"
-                    android:textSize="18dp"
+                    android:textSize="18sp"
                     android:paddingEnd="12dp" />
 
                 <TextView
                     android:id="@+id/carSummary"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="wrap_content"
                     android:background="#D3F9B5"
-                    android:paddingLeft="10dp"
-                    android:textSize="16dp"
+                    android:paddingStart="10dp"
+                    android:textSize="18sp"
                     android:textColor="#0F1108"
                     android:text="TextView" />
-
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/mdd"
+                android:text="THIS THE REST OF THE DETAILS HERE?"
+                android:textSize="16sp"
+                android:layout_below="@id/layout6"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="NotSibling" />
+
         </RelativeLayout>
-
     </android.support.v4.widget.NestedScrollView>
-
 </android.support.constraint.ConstraintLayout>

@@ -1,5 +1,5 @@
 /*
-    Project 3
+    Project 3: CarApp
     Cesar G
     Shoraj M
  */
@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -28,45 +29,39 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener  {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Spinner make;
     Spinner model;
 
-    public static ArrayList<Car> newCarList= new ArrayList<>();
-    public static ArrayList<CarModel> carModelList= new ArrayList<>();
-    public static ArrayList<DetailCar> detailCarList= new ArrayList<>();
-    public static ArrayList<DetailCar> rvt= new ArrayList<>();
-    public int run=0;
+    public static ArrayList<Car> newCarList = new ArrayList<>();
+    public static ArrayList<CarModel> carModelList = new ArrayList<>();
+    public static ArrayList<DetailCar> detailCarList = new ArrayList<>();
+    public static ArrayList<DetailCar> rvt = new ArrayList<>();
+//    public static ArrayList<MoreDetails> moreDetailsCarList;
+    ArrayList<CarObject> cars = new ArrayList<>();
+
+    public int run = 0;
     // RecyclerView rvContacts;
-    //public RecyclerView rvContacts;
-    //public ContactsAdapter adapter2;
+    // public RecyclerView rvContacts;
+    // public ContactsAdapter adapter2;
 
     public boolean again = false;
     public boolean mTwoPane = false;
     public boolean finished=false;
-    ArrayList<CarObject> cars = new ArrayList<CarObject>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        newCarList = new ArrayList<>();
-//        carModelList = new ArrayList<>();
-//        detailCarList = new ArrayList<>();
-//        rvt=new ArrayList<>();
-//=======================================================================================
         // We need to populate the initial spinner first.
-        // So in onCreate we will fill the first spinner.
-        // Spinner element
-        make = (Spinner) findViewById(R.id.makeSpinner);
-        model = (Spinner) findViewById(R.id.modelSpinner);
+        make = findViewById(R.id.makeSpinner);
+        model = findViewById(R.id.modelSpinner);
 
         // rvContacts = findViewById(R.id.carLot);
-        //rvContacts.setAdapter(null);
-        //rvContacts.removeAllViewsInLayout();
-
+        // rvContacts.setAdapter(null);
+        // rvContacts.removeAllViewsInLayout();
 //        Car car = new Car();
 //        CarModel carModel = new CarModel();
 
@@ -74,19 +69,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         DataBaseHelper dbh = new DataBaseHelper(0, makeURL, 0);
         dbh.execute();    // makeData in the DataBaseHelper has the right Heroku values
 
-       // newCarList = new ArrayList<>();
-        newCarList.add(new Car(999, " "));
 
+        /*
+            Using ArrayAdapter to populate the 1st spinner with the data from newCarList ArrayList.
+            ArrayList newCarList contains <Car> objects which is retrieved from the make json url
+         */
+        newCarList.add(new Car(999, " "));  // Note: *Handles specical case. Adapter wont function without this
         ArrayAdapter<Car> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, newCarList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         make.setAdapter(adapter);
-        //adapter.notifyDataSetChanged();
         make.setOnItemSelectedListener(this);
 
-
-//        detailCarList.add(new DetailCar(" ", "test", 9999, " ",
-//                0000, " ", null, "test",
-//                " ", "test", "test"));
 
         rvt = detailCarList;
         RecyclerView rvContacts = (RecyclerView) findViewById(R.id.carLot);
@@ -95,9 +88,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         ContactsAdapter adapter2 = new ContactsAdapter(rvt);
         rvContacts.setAdapter(adapter2);
         rvContacts.setLayoutManager(new LinearLayoutManager(this));
+        rvContacts.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         adapter2.notifyDataSetChanged();
-
-        //adapter2.notifyDataSetChanged();
 
         // adapter
         if (findViewById(R.id.song_detail_container) != null) {
@@ -112,7 +104,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 String strMake = parent.getItemAtPosition(position).toString();
                 Toast.makeText(parent.getContext(), "Make: " + strMake, Toast.LENGTH_LONG).show();
 
-
                 int makeId = newCarList.get(position).getId();
                 String makeURL = "https://thawing-beach-68207.herokuapp.com/carmodelmakes/" + makeId;
                 DataBaseHelper dbh2 = new DataBaseHelper(makeId, makeURL, 0);
@@ -125,8 +116,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 ArrayAdapter<CarModel> carModelArrayAdapter = new ArrayAdapter<CarModel>(MainActivity.this, android.R.layout.simple_spinner_dropdown_item, carModelList);
                 carModelArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 carModelArrayAdapter.notifyDataSetChanged();
-
-
 
                 model.setAdapter(carModelArrayAdapter);
             }

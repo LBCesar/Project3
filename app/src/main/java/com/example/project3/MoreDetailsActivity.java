@@ -9,45 +9,56 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+/*
+ *  *Note: There's another class at the bottom
+ *
+ *  MoreDetailActivity class was created for handling the 4th url link
+ *  for the 3rd actvity upon click of button.
+ *
+ *  *This is now implemented inside carInfo class!
+ */
 public class MoreDetailsActivity extends AppCompatActivity {
 
-    // this arraylist will contain the last link arraylist with objects
-    public static ArrayList<MoreDetails> moreDetailsCarList;
+//    public static ArrayList<MoreDetails> moreDetailsCarList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_more_details);
 
-
-        Spinner s = findViewById(R.id.s);
+//        Spinner s = findViewById(R.id.s);
 
 //        Intent intent = getIntent();
 //        String myID = intent.getStringExtra("id");
 
-
 //        moreDetailsCarList = new ArrayList<>();
 //        moreDetailsCarList.add(new MoreDetails());
 
-        int url_ID = 3484; // this id will be used for the url, must come from the 3rd link or array3 id
-        String makeURL = "https://thawing-beach-68207.herokuapp.com/cars/" + url_ID;
-        DataBaseHelper dbh4 = new DataBaseHelper(321, makeURL, 321);
-        dbh4.execute();
+//        int url_ID = 3484; // this id will be used for the url, must come from the 3rd link or array3 id
+//        String makeURL = "https://thawing-beach-68207.herokuapp.com/cars/" + url_ID;
+//        DataBaseHelper dbh4 = new DataBaseHelper(321, makeURL, 321);
+//        dbh4.execute();
 
-        moreDetailsCarList = new ArrayList<>();
-//        moreDetailsCarList.add(new MoreDetails());
-
-        ArrayAdapter<MoreDetails> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, moreDetailsCarList);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        s.setAdapter(adapter);
-
-
+        // testing using a spinner to see if the data is retrieved from the url
+//        ArrayAdapter<MoreDetails> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, moreDetailsCarList);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        s.setAdapter(adapter);
     }
 }
 
 
 //---------------------------------------------------------------------------------------------------------
+/*
+    This class contains an vehicle elements which are
+    retrieved from the 4th provided url.
+    *Full Detail Info regarding one car
+    Car objects will be stored in the ArrayList
+
+    url: https://thawing-beach-68207.herokuapp.com/cars/<carid>
+    <carid>: this is the id which comes frm the 3rd url link.
+ */
 class MoreDetails{
+    // Initialize all the variables in the link
     public int carcondition_id;
     public int color_id;
     public String content_local_url;
@@ -74,11 +85,12 @@ class MoreDetails{
     public String vin_number;
     public int zipcode_id;
 
-
+    // Empty constructor
     public MoreDetails(){
 
     }
 
+    // Constructor with all the required param
     public MoreDetails(int carcondition_id, int color_id, String content_local_url, String content_url,
                        String created_at, int currency_id, int id, String image_local_url, String image_url,
                        String is_active, int mileage, int onlinecardealer_id, double price, String seller_address,
@@ -113,6 +125,7 @@ class MoreDetails{
     }
 
 
+    // All the getter methods to retrieve the value when required
     public int getCarcondition_id() {
         return carcondition_id;
     }
@@ -243,4 +256,5 @@ class MoreDetails{
                 ", zipcode_id=" + zipcode_id +
                 '}';
     }
+
 } // end MoreDetail class

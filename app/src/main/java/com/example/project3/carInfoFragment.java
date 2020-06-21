@@ -8,14 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link carInfoFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class carInfoFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -24,26 +18,17 @@ public class carInfoFragment extends Fragment {
     private TextView date;
     private TextView summary;
     private ImageView carPic;
-    // TODO: Rename and change types of parameters
-    //private CarObject mParam1;
+
+//    private CarObject mParam1;
     private DetailCar mParam1;
     private String mParam2;
-    //CarObject co = new CarObject();
+//    CarObject co = new CarObject();
     DetailCar co=new DetailCar();
 
     public carInfoFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment carInfoFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static carInfoFragment newInstance(DetailCar param1, String param2) {
         carInfoFragment fragment = new carInfoFragment();
         Bundle args = new Bundle();
@@ -85,10 +70,9 @@ public class carInfoFragment extends Fragment {
             date.setText(co.vin_number);
             summary.setText(co.veh_description);
             //carPic.setImageResource(co.carPic);
-
-
         }
 
         return root;
     }
+
 }
