@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 public class carInfo extends AppCompatActivity {
 
@@ -24,6 +25,7 @@ public class carInfo extends AppCompatActivity {
     private TextView summary;
     private TextView mileage;
     private ImageView carPic;
+
 
     public static ArrayList<MoreDetails> moreDetailsCarList;
 
@@ -43,6 +45,30 @@ public class carInfo extends AppCompatActivity {
 
         if ((DetailCar) getIntent().getSerializableExtra("myCar") != null) {
             co = (DetailCar) getIntent().getSerializableExtra("myCar");
+
+            int url_ID = co.id; // this id will be used for the url, must come from the 3rd link or array3 id
+           String makeURL = "https://thawing-beach-68207.herokuapp.com/cars/" + url_ID;
+           DataBaseHelper dbh4 = new DataBaseHelper(321, makeURL, 321);
+            dbh4.execute();
+//            try {
+//                dbh4.execute().get();
+//            } catch (ExecutionException | InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//            if(!moreDetailsCarList.isEmpty()){
+//                //co.adder2();
+//            }
+            //MoreDetails md=moreDetailsCarList.get(0);
+//            if(MainActivity.mdMain!=null) {
+//                co.adder(MainActivity.mdMain);
+//                //co.adder2();
+//            }
+//            if(!MainActivity.moreDetailsCarList.isEmpty()){
+//                co.adder(moreDetailsCarList.get(0));
+//            }
+
+
+
             makeModel.setText( co.vehicle_make + " _ " + co.model);
 //            price.setText("$ " + Double.toString(co.price));
             price.setText(co.getPrice());
@@ -83,6 +109,22 @@ public class carInfo extends AppCompatActivity {
 
 
 } // end carInfo class
+
+//int url_ID = 3484; // this id will be used for the url, must come from the 3rd link or array3 i
+//                    int url_ID=co.id;
+//                    String makeURL = "https://thawing-beach-68207.herokuapp.com/cars/" + url_ID;
+//                    DataBaseHelper dbh4 = new DataBaseHelper(321, makeURL, 321);
+//                    dbh4.execute();
+//                    try {
+//                        dbh4.execute().get();
+//                    } catch (ExecutionException e) {
+//                        e.printStackTrace();
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//co.adder(MainActivity.moreDetailsCarList.get(0));
+//co.adder(MainActivity.mdMain);
+//co.adder2();
 
 
 

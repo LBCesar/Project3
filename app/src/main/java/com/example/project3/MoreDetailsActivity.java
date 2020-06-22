@@ -226,6 +226,10 @@ class MoreDetails{
         return zipcode_id;
     }
 
+    public String stringer(){
+        return "Test";
+    }
+
     @Override
     public String toString() {
         return "MoreDetails{" +

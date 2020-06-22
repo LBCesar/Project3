@@ -130,7 +130,9 @@ public class DataBaseHelper extends AsyncTask<Void, Void, Void> {
                     moreDetails.zipcode_id = jsonObject.getInt("zipcode_id");
 
 //                    MoreDetailsActivity.moreDetailsCarList.add(moreDetails);
+                    MainActivity.mdMain=moreDetails;
                     carInfo.moreDetailsCarList.add(moreDetails);
+                    MainActivity.moreDetailsCarList.add(moreDetails);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

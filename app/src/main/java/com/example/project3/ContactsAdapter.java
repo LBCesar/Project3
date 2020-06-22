@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /*
  * Create the basic adapter extending from RecyclerView.Adapter
@@ -93,6 +94,9 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
             @Override
             public void onClick(View v) {
                 DetailCar co = new DetailCar();
+
+
+
                 final Intent intent;
 
                 if (mTwoPane) {
@@ -107,6 +111,10 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
 
                     int selectedSong = viewHolder.getAdapterPosition();
                     co=mContacts.get(selectedSong);
+
+
+
+
                     carInfoFragment fragment=carInfoFragment.newInstance(co,"hello");
 
                     ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
@@ -124,6 +132,24 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
                     Context context = v.getContext();
                     int selectedSong = viewHolder.getAdapterPosition();
                     co = mContacts.get(selectedSong);
+
+                    //int url_ID = 3484; // this id will be used for the url, must come from the 3rd link or array3 i
+//                    int url_ID=co.id;
+//                    String makeURL = "https://thawing-beach-68207.herokuapp.com/cars/" + url_ID;
+//                    DataBaseHelper dbh4 = new DataBaseHelper(321, makeURL, 321);
+//                    dbh4.execute();
+//                    try {
+//                        dbh4.execute().get();
+//                    } catch (ExecutionException e) {
+//                        e.printStackTrace();
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+                    //co.adder(MainActivity.moreDetailsCarList.get(0));
+                    //co.adder(MainActivity.mdMain);
+                    //co.adder2();
+
+
                     intent = new Intent(context, carInfo.class);
 
                     intent.putExtra("myCar", co);
