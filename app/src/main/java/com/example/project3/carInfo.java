@@ -84,6 +84,7 @@ public class carInfo extends AppCompatActivity {
         }
 
 
+        // On debug mode, the arraylist does seems to have the correct values in it
         TextView textView = findViewById(R.id.mdd);
 //        MoreDetails moreDetails = new MoreDetails();
         moreDetailsCarList = new ArrayList<>();

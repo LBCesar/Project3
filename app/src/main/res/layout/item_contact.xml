@@ -9,12 +9,17 @@
 
     <TextView
         android:id="@+id/contact_name"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:text="How i look?"
+        android:textSize="16dp"
         android:textColor="#0F1108"
+        android:textAlignment="viewStart"
+        android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlCompat" />
 
 </android.support.constraint.ConstraintLayout>
 
