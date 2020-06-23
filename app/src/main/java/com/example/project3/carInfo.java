@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.URLUtil;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -77,10 +78,14 @@ public class carInfo extends AppCompatActivity {
             summary.setText(co.veh_description);
 
             //carPic.setImageResource(co.carPic);
-            Picasso.get()
-                    .load("https://i.imgur.com/gwy9G6s.jpg")
+            if(URLUtil.isValidUrl(co.image_url)) {
+                //"https://i.imgur.com/gwy9G6s.jpg"
+
+                Picasso.get()
+                        .load(co.image_url)
 //                    .resize(600,600)
-                    .into(carPic);
+                        .into(carPic);
+            }
         }
 
 
