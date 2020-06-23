@@ -232,34 +232,34 @@ class MoreDetails{
 
     @Override
     public String toString() {
-//        return "MoreDetails{" +
-//                "carcondition_id=" + carcondition_id +
-//                ", color_id=" + color_id +
-//                ", content_local_url='" + content_local_url + '\'' +
-//                ", content_url='" + content_url + '\'' +
-//                ", created_at='" + created_at + '\'' +
-//                ", currency_id=" + currency_id +
-//                ", id=" + id +
-//                ", image_local_url='" + image_local_url + '\'' +
-//                ", image_url='" + image_url + '\'' +
-//                ", is_active='" + is_active + '\'' +
-//                ", mileage=" + mileage +
-//                ", onlinecardealer_id=" + onlinecardealer_id +
-//                ", price=" + price +
-//                ", seller_address='" + seller_address + '\'' +
-//                ", seller_address_locality='" + seller_address_locality + '\'' +
-//                ", seller_address_region='" + seller_address_region + '\'' +
-//                ", seller_name='" + seller_name + '\'' +
-//                ", seller_telnumber='" + seller_telnumber + '\'' +
-//                ", updated_at='" + updated_at + '\'' +
-//                ", veh_description='" + veh_description + '\'' +
-//                ", vehicle_make_id=" + vehicle_make_id +
-//                ", vehicle_model_id=" + vehicle_model_id +
-//                ", vehicle_url='" + vehicle_url + '\'' +
-//                ", vin_number='" + vin_number + '\'' +
-//                ", zipcode_id=" + zipcode_id +
-//                '}';
-        return image_url;
+        return "MoreDetails{" +
+                "carcondition_id=" + carcondition_id +
+                ", color_id=" + color_id +
+                ", content_local_url='" + content_local_url + '\'' +
+                ", content_url='" + content_url + '\'' +
+                ", created_at='" + created_at + '\'' +
+                ", currency_id=" + currency_id +
+                ", id=" + id +
+                ", image_local_url='" + image_local_url + '\'' +
+                ", image_url='" + image_url + '\'' +
+                ", is_active='" + is_active + '\'' +
+                ", mileage=" + mileage +
+                ", onlinecardealer_id=" + onlinecardealer_id +
+                ", price=" + price +
+                ", seller_address='" + seller_address + '\'' +
+                ", seller_address_locality='" + seller_address_locality + '\'' +
+                ", seller_address_region='" + seller_address_region + '\'' +
+                ", seller_name='" + seller_name + '\'' +
+                ", seller_telnumber='" + seller_telnumber + '\'' +
+                ", updated_at='" + updated_at + '\'' +
+                ", veh_description='" + veh_description + '\'' +
+                ", vehicle_make_id=" + vehicle_make_id +
+                ", vehicle_model_id=" + vehicle_model_id +
+                ", vehicle_url='" + vehicle_url + '\'' +
+                ", vin_number='" + vin_number + '\'' +
+                ", zipcode_id=" + zipcode_id +
+                '}';
+//        return image_url;
     }
 
 } // end MoreDetail class

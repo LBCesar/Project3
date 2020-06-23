@@ -126,13 +126,18 @@ public class DataBaseHelper extends AsyncTask<Void, Void, Void> {
                     moreDetails.vehicle_make_id = jsonObject.getInt("vehicle_make_id");
                     moreDetails.vehicle_model_id = jsonObject.getInt("vehicle_model_id");
                     moreDetails.vehicle_url = jsonObject.getString("vehicle_url");
-                    moreDetails.vin_number = jsonObject.getString("vin_number");
+//
+//                    moreDetails.vin_number = jsonObject.getString("vin_number");
+                    carInfo.car1 = jsonObject.getString("vin_number");
+
                     moreDetails.zipcode_id = jsonObject.getInt("zipcode_id");
 
+
+
 //                    MoreDetailsActivity.moreDetailsCarList.add(moreDetails);
-                    MainActivity.mdMain = moreDetails;
+//                    MainActivity.mdMain = moreDetails;
                     carInfo.moreDetailsCarList.add(moreDetails);
-                    MainActivity.moreDetailsCarList.add(moreDetails);
+//                    MainActivity.moreDetailsCarList.add(moreDetails);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
