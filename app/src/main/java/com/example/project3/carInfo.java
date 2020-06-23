@@ -1,5 +1,6 @@
 package com.example.project3;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -72,8 +73,6 @@ public class carInfo extends AppCompatActivity {
 //                co.adder(moreDetailsCarList.get(0));
 //            }
 
-
-
             makeModel.setText( co.vehicle_make + " _ " + co.model);
 //            price.setText("$ " + Double.toString(co.price));
             price.setText(co.getPrice());
@@ -113,7 +112,34 @@ public class carInfo extends AppCompatActivity {
         moreDetailsCarList.add(new MoreDetails());
 
         textView = findViewById(R.id.mdd);
-        textView.setText(moreDetailsCarList.get(0).toString() + "sakldnalk");
+//        textView.setText(moreDetailsCarList.get(0).toString() + "sakldnalk");
+
+        Button btn_moredetails = findViewById(R.id.btn_moredetails);
+
+        btn_moredetails.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onClick(View v) {
+                if (textView.getVisibility() == View.VISIBLE){
+                    textView.setText(" ");
+                    textView.setVisibility(TextView.INVISIBLE);
+                }
+                else{
+                    textView.setVisibility(TextView.VISIBLE);
+                    textView.setText(moreDetailsCarList.get(0).toString());
+                }
+            }
+        });
+
+
+
+
+
+
+
+
+
+
 
 //        moreDetailsCarList = new ArrayList<>();
 //        moreDetailsCarList.add(new MoreDetails());

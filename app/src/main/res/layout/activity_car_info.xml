@@ -180,23 +180,38 @@
                     android:text="TextView" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/mdd"
-                android:text="THIS THE REST OF THE DETAILS HERE? LAAAA AAAA"
-                android:textSize="16sp"
-                android:textColor="@color/colorPrimaryDark"
+<!--            <TextView-->
+<!--                android:id="@+id/layout7"-->
+<!--                android:layout_below="@id/layout6"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:text="More Info:"-->
+<!--                android:textColor="#E86B2BC5"-->
+<!--                android:textSize="18sp"-->
+<!--                android:paddingEnd="12dp" />-->
+
+            <Button
+                android:id="@+id/btn_moredetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/layout6"
                 android:layout_marginTop="10dp"
-                android:background="@color/colorAccent"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:text="Click for more details" />
+
+            <TextView
+                android:id="@+id/mdd"
+                android:text=""
+                android:textSize="16sp"
+                android:textColor="#0F1108"
+                android:paddingStart="10dp"
+                android:layout_below="@id/btn_moredetails"
+                android:background="#B1EDE8"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-
-<!--            <Spinner-->
-<!--                android:id="@+id/spinny"-->
-<!--                android:layout_margin="20dp"-->
-<!--                android:background="@color/colorPrimaryDark"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="30dp" />-->
 
         </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>
