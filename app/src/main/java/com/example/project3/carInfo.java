@@ -11,6 +11,7 @@ import android.webkit.URLUtil;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -49,8 +50,8 @@ public class carInfo extends AppCompatActivity {
             co = (DetailCar) getIntent().getSerializableExtra("myCar");
 
             int url_ID = co.id; // this id will be used for the url, must come from the 3rd link or array3 id
-           String makeURL = "https://thawing-beach-68207.herokuapp.com/cars/" + url_ID;
-           DataBaseHelper dbh4 = new DataBaseHelper(321, makeURL, 321);
+            String makeURL = "https://thawing-beach-68207.herokuapp.com/cars/" + url_ID;
+            DataBaseHelper dbh4 = new DataBaseHelper(321, makeURL, 321);
             dbh4.execute();
 //            try {
 //                dbh4.execute().get();
@@ -84,14 +85,16 @@ public class carInfo extends AppCompatActivity {
                 Picasso.get()
                         .load(co.image_url)
 //                    .resize(600,600)
+                        .error(R.drawable.coming_soon)
                         .into(carPic);
-
             }
         }
 
 
         // On debug mode, the arraylist does seems to have the correct values in it
         TextView textView = findViewById(R.id.mdd);
+
+
 //        MoreDetails moreDetails = new MoreDetails();
         moreDetailsCarList = new ArrayList<>();
 //        moreDetailsCarList.add(new MoreDetails());
@@ -105,12 +108,28 @@ public class carInfo extends AppCompatActivity {
 //        moreDetailsCarList.add(new MoreDetails());
 
         MoreDetails moreDetails = new MoreDetails();
+
         for (int i=0; i<moreDetailsCarList.size();i++){
             moreDetails = moreDetailsCarList.get(i);
             Log.d("myTag", moreDetails.vehicle_url);
             textView.setText(moreDetails.image_url);
 //            textView.setText(moreDetails.toString());
         }
+
+        // spinner
+//        Spinner spinny = findViewById(R.id.spinny);
+//
+//        ArrayAdapter<MoreDetails> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, moreDetailsCarList);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spinny.setAdapter(adapter);
+//
+//        StringBuilder shit = new StringBuilder();
+//        for (MoreDetails m: moreDetailsCarList){
+//            shit.append(m.image_url).append("\n");
+//        }
+//        textView.setText(shit.toString());
+
+
 
     }
 

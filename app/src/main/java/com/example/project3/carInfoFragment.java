@@ -79,6 +79,7 @@ public class carInfoFragment extends Fragment {
                 Picasso.get()
                         .load(co.image_url)
 //                    .resize(600,600)
+                        .error(R.drawable.coming_soon)
                         .into(carPic);
 
             }

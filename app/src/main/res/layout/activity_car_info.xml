@@ -92,7 +92,6 @@
                     android:id="@+id/carPic"
                     android:layout_width="match_parent"
                     android:layout_height="350dp"
-                    android:background="@drawable/coming_soon"
                     tools:srcCompat="@drawable/carrrpic" />
             </LinearLayout>
 
@@ -183,13 +182,21 @@
 
             <TextView
                 android:id="@+id/mdd"
-                android:text="THIS THE REST OF THE DETAILS HERE?"
+                android:text="THIS THE REST OF THE DETAILS HERE? LAAAA AAAA"
                 android:textSize="16sp"
+                android:textColor="@color/colorPrimaryDark"
                 android:layout_below="@id/layout6"
                 android:layout_marginTop="10dp"
+                android:background="@color/colorAccent"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:ignore="NotSibling" />
+                android:layout_height="wrap_content" />
+
+<!--            <Spinner-->
+<!--                android:id="@+id/spinny"-->
+<!--                android:layout_margin="20dp"-->
+<!--                android:background="@color/colorPrimaryDark"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="30dp" />-->
 
         </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>

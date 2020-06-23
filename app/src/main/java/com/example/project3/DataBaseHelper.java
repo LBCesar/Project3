@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class DataBaseHelper extends AsyncTask<Void, Void, Void> {
 
-    // initilize all the variables
+    // initialize all the variables
     public boolean help=false;
     public int ID;
     public String myURL;
@@ -130,7 +130,7 @@ public class DataBaseHelper extends AsyncTask<Void, Void, Void> {
                     moreDetails.zipcode_id = jsonObject.getInt("zipcode_id");
 
 //                    MoreDetailsActivity.moreDetailsCarList.add(moreDetails);
-                    MainActivity.mdMain=moreDetails;
+                    MainActivity.mdMain = moreDetails;
                     carInfo.moreDetailsCarList.add(moreDetails);
                     MainActivity.moreDetailsCarList.add(moreDetails);
                 }

@@ -108,9 +108,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             DataBaseHelper dbh3 = new DataBaseHelper(0, availableURL, 1);
             try {
                 dbh3.execute().get();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
+            } catch (ExecutionException | InterruptedException e) {
                 e.printStackTrace();
             }
 
