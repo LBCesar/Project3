@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.URLUtil;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -72,11 +73,15 @@ public class carInfoFragment extends Fragment {
             mileage.setText(" " + co.mileage + " miles");
             summary.setText(co.veh_description);
 
-            Picasso.get()
-                    .load("https://i.imgur.com/gwy9G6s.jpg")
-//                    .resize(600,600)
-                    .into(carPic);
+            if(URLUtil.isValidUrl(co.image_url)) {
+                //"https://i.imgur.com/gwy9G6s.jpg"
 
+                Picasso.get()
+                        .load(co.image_url)
+//                    .resize(600,600)
+                        .into(carPic);
+
+            }
 
         }
 
