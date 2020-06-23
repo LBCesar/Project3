@@ -92,6 +92,7 @@
                     android:id="@+id/carPicBIG"
                     android:layout_width="match_parent"
                     android:layout_height="350dp"
+                    android:background="@drawable/coming_soon"
                     tools:srcCompat="@tools:sample/avatars" />
             </LinearLayout>
 
