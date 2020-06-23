@@ -28,6 +28,7 @@ public class carInfo extends AppCompatActivity {
     private ImageView carPic;
 
 
+
     public static ArrayList<MoreDetails> moreDetailsCarList;
 
     @Override
@@ -77,7 +78,6 @@ public class carInfo extends AppCompatActivity {
             mileage.setText(" " + co.mileage + " miles");
             summary.setText(co.veh_description);
 
-            //carPic.setImageResource(co.carPic);
             if(URLUtil.isValidUrl(co.image_url)) {
                 //"https://i.imgur.com/gwy9G6s.jpg"
 
@@ -85,6 +85,7 @@ public class carInfo extends AppCompatActivity {
                         .load(co.image_url)
 //                    .resize(600,600)
                         .into(carPic);
+
             }
         }
 
