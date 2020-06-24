@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public static ArrayList<MoreDetails> moreDetailsCarList = new ArrayList<>();
     public static MoreDetails mdMain;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         String makeURL = "https://thawing-beach-68207.herokuapp.com/carmakes";
         DataBaseHelper dbh = new DataBaseHelper(0, makeURL, 0);
         dbh.execute();
-
 
         /*
             Using ArrayAdapter to populate the 1st spinner with the data from newCarList ArrayList.
@@ -129,6 +127,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
     }
+
+
     public void lastResort(int url_ID){
         String makeURL = "https://thawing-beach-68207.herokuapp.com/cars/" + url_ID;
         DataBaseHelper dbh4 = new DataBaseHelper(321, makeURL, 321);
@@ -140,4 +140,5 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
 
     }
+
 } // end class MainActivity

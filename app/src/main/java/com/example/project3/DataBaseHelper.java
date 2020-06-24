@@ -126,26 +126,24 @@ public class DataBaseHelper extends AsyncTask<Void, Void, Void> {
                     moreDetails.vehicle_make_id = jsonObject.getInt("vehicle_make_id");
                     moreDetails.vehicle_model_id = jsonObject.getInt("vehicle_model_id");
                     moreDetails.vehicle_url = jsonObject.getString("vehicle_url");
-//
-//                    moreDetails.vin_number = jsonObject.getString("vin_number");
-                    //carInfo.car1 = jsonObject.getString("vin_number");
-
                     moreDetails.zipcode_id = jsonObject.getInt("zipcode_id");
 
-
-
-//                    MoreDetailsActivity.moreDetailsCarList.add(moreDetails);
-//                    MainActivity.mdMain = moreDetails;
                     carInfo.moreDetailsCarList.add(moreDetails);
-                    //carInfoFragment.moreDetailsCarList.add(moreDetails);
-                    //MainActivity.moreDetailsCarList.add(moreDetails);
+                    // carInfoFragment.moreDetailsCarList.add(moreDetails);
+                    // MainActivity.moreDetailsCarList.add(moreDetails);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
 
         }
-        // added for the 4th link parsing. this goes into moreDetailsCarList into MoreDetailsActivity class
+
+        /*
+             added for the 4th link parsing. this goes into moreDetailsCarList into carInfoFragment class
+             *Special case: this async class cannot return multiple arrays during json parsing
+             Note: apparently the async task seems to cause the most problem in the prj.
+         */
+
         else if (ID == 777 && detail == 777) {     // 4th link parsing
             try {
                 JSONArray jsonArray = new JSONArray(data);
@@ -175,19 +173,9 @@ public class DataBaseHelper extends AsyncTask<Void, Void, Void> {
                     moreDetails.vehicle_make_id = jsonObject.getInt("vehicle_make_id");
                     moreDetails.vehicle_model_id = jsonObject.getInt("vehicle_model_id");
                     moreDetails.vehicle_url = jsonObject.getString("vehicle_url");
-//
-//                    moreDetails.vin_number = jsonObject.getString("vin_number");
-                    //carInfo.car1 = jsonObject.getString("vin_number");
-
                     moreDetails.zipcode_id = jsonObject.getInt("zipcode_id");
 
-
-
-//                    MoreDetailsActivity.moreDetailsCarList.add(moreDetails);
-//                    MainActivity.mdMain = moreDetails;
-                    //carInfo.moreDetailsCarList.add(moreDetails);
                     carInfoFragment.moreDetailsCarList.add(moreDetails);
-                    //MainActivity.moreDetailsCarList.add(moreDetails);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -239,16 +227,3 @@ public class DataBaseHelper extends AsyncTask<Void, Void, Void> {
     }
 
 } // end DataBaseHelper class
-
-
-
-/*
-        public String helper(){
-            String s = "";
-            while(help == false){
-
-            }
-            return s;
-        }
-
- */

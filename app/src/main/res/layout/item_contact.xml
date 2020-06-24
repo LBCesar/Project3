@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- RecyclerViewer list of items is displayed in here
+     Each car model, color n price is displayed -->
+
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -22,26 +26,3 @@
 
 </android.support.constraint.ConstraintLayout>
 
-
-
-
-
-
-<!--    <?xml version="1.0" encoding="utf-8"?>-->
-<!--<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--xmlns:tools="http://schemas.android.com/tools"-->
-<!--android:id="@+id/linearLayout"-->
-<!--android:layout_width="match_parent"-->
-<!--android:layout_height="100dp">-->
-
-<!--<TextView-->
-<!--    android:id="@+id/contact_name"-->
-<!--    android:layout_width="210dp"-->
-<!--    android:layout_height="47dp"-->
-<!--    android:layout_marginStart="88dp"-->
-<!--    android:layout_marginTop="36dp"-->
-<!--    app:layout_constraintStart_toStartOf="parent"-->
-<!--    app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--</android.support.constraint.ConstraintLayout>-->

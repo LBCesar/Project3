@@ -27,13 +27,12 @@ public class carInfoFragment extends Fragment {
     private TextView summary;
     private TextView mileage;
     private ImageView carPic;
-
     private TextView textView;
+
     public static ArrayList<MoreDetails> moreDetailsCarList=new ArrayList<>();
 
     private DetailCar mParam1;
     private String mParam2;
-//    CarObject co = new CarObject();
     DetailCar co=new DetailCar();
 
     public carInfoFragment() {
@@ -56,22 +55,6 @@ public class carInfoFragment extends Fragment {
             mParam1 = (DetailCar) getArguments().getSerializable(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
             co = mParam1;
-//            int url_ID = co.id; // this id will be used for the url, must come from the 3rd link or array3 id
-//            String makeURL = "https://thawing-beach-68207.herokuapp.com/cars/" + url_ID;
-//            DataBaseHelper dbh4 = new DataBaseHelper(321, makeURL, 321);
-//            dbh4.execute();
-//
-//
-//            int url_ID = co.id; // this id will be used for the url, must come from the 3rd link or array3 id
-//            String makeURL = "https://thawing-beach-68207.herokuapp.com/cars/" + url_ID;
-//            DataBaseHelper dbh4 = new DataBaseHelper(321, makeURL, 321);
-//          //  dbh4.execute();
-//
-//            try {
-//                dbh4.execute().get();
-//            } catch (ExecutionException | InterruptedException e) {
-//                e.printStackTrace();
-//            }
         }
     }
 
@@ -89,50 +72,25 @@ public class carInfoFragment extends Fragment {
             mileage = root.findViewById(R.id.mileageBIG);
             carPic = root.findViewById(R.id.carPicBIG);
 
-
             makeModel.setText( co.vehicle_make + " _ " + co.model);
             price.setText(co.getPrice());
             date.setText(co.vin_number);
             mileage.setText(" " + co.mileage + " miles");
             summary.setText(co.veh_description);
 
+            //Tested link: "https://i.imgur.com/gwy9G6s.jpg"
             if(URLUtil.isValidUrl(co.image_url)) {
-                //"https://i.imgur.com/gwy9G6s.jpg"
-
                 Picasso.get()
                         .load(co.image_url)
 //                    .resize(600,600)
                         .error(R.drawable.coming_soon)
                         .into(carPic);
-
             }
-           // final ArrayList<MoreDetails> moreDetailsCarList;
-//        moreDetailsCarList.add(new MoreDetails());
 
-
-
-            //moreDetailsCarList = new ArrayList<>();
-//
-//
-//            int url_ID = co.id; // this id will be used for the url, must come from the 3rd link or array3 id
-//            String makeURL = "https://thawing-beach-68207.herokuapp.com/cars/" + url_ID;
-//            DataBaseHelper dbh4 = new DataBaseHelper(777, makeURL, 777);
-//            try {
-//                dbh4.execute().get();
-//            } catch (ExecutionException | InterruptedException e) {
-//                e.printStackTrace();
-//            }
-            //moreDetailsCarList = new ArrayList<>();
-
-           // moreDetailsCarList= carInfo.moreDetailsCarList;
-            //moreDetailsCarList.addAll(carInfo.moreDetailsCarList);
-            //moreDetailsCarList.add(new MoreDetails());
-           // moreDetailsCarList.addAll(MainActivity.moreDetailsCarList);
             textView = root.findViewById(R.id.mddBIG);
-//        textView.setText(moreDetailsCarList.get(0).toString() + "sakldnalk");
+            textView.setVisibility(TextView.INVISIBLE);
 
             Button btn_moredetails = root.findViewById(R.id.btn_moredetailsBIG);
-
             btn_moredetails.setOnClickListener(new View.OnClickListener() {
                 @SuppressLint("SetTextI18n")
                 @Override
@@ -147,17 +105,39 @@ public class carInfoFragment extends Fragment {
                     }
                 }
             });
-
-
-
-
-
-
-
-
         }
-
         return root;
     }
 
-}
+}  // end class
+
+
+
+
+
+
+
+
+//-------------------------------------------------------------------------------------------------------------
+/*              Testing Stuff (failed, line 106-2_)
+
+//            final ArrayList<MoreDetails> moreDetailsCarList;
+//        moreDetailsCarList.add(new MoreDetails());
+//        moreDetailsCarList = new ArrayList<>();
+//
+//
+//            int url_ID = co.id; // this id will be used for the url, must come from the 3rd link or array3 id
+//            String makeURL = "https://thawing-beach-68207.herokuapp.com/cars/" + url_ID;
+//            DataBaseHelper dbh4 = new DataBaseHelper(777, makeURL, 777);
+//            try {
+//                dbh4.execute().get();
+//            } catch (ExecutionException | InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//            moreDetailsCarList = new ArrayList<>();
+//
+//            moreDetailsCarList= carInfo.moreDetailsCarList;
+//            moreDetailsCarList.addAll(carInfo.moreDetailsCarList);
+//            moreDetailsCarList.add(new MoreDetails());
+//            moreDetailsCarList.addAll(MainActivity.moreDetailsCarList);
+ */

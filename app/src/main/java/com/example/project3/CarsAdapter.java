@@ -22,7 +22,6 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.ViewHolder> {
     private List<DetailCar> mContacts;
     public boolean mTwoPane;
 
-
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView nameTextView;
         //public ImageView lilCar;
@@ -34,12 +33,10 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.ViewHolder> {
         }
     }
 
-
     // True, if larger screen is detected
     public void m2p(){
         mTwoPane = true;
     }
-
 
     // Pass in the contact array into the constructor
     public CarsAdapter(List<DetailCar> contacts) {
@@ -70,18 +67,15 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 DetailCar co = new DetailCar();
-
-
-
                 final Intent intent;
 
+                /*
+                    This will update our fragment and place it in the
+                    fragment_car_info.xml
+                    container in activity_main.xml(w900dp)
+                    carInfoFragment.java
+                 */
                 if (mTwoPane) {
-                    /*
-                        This will update our fragment and place it in the
-                        fragment_car_info.xml
-                        container in activity_main.xml(w900dp)
-                        carInfoFragment.java
-                     */
                     Context context = v.getContext();
                     int selectedSong = viewHolder.getAdapterPosition();
                     co=mContacts.get(selectedSong);
@@ -95,14 +89,12 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.ViewHolder> {
 //                        e.printStackTrace();
 //                    }
 
-
                     carInfoFragment fragment=carInfoFragment.newInstance(co);
                     ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
                             .replace(R.id.song_detail_container, fragment)
                             .commit();
-
-                 } else {
-
+                 }
+                else {
                     /*
                         carInfo.java
                         activity_car_info.xml
@@ -119,7 +111,6 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.ViewHolder> {
             }
         });
     }
-
 
     // Returns the total count of items in the list
     @Override
