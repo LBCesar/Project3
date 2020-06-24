@@ -137,6 +137,7 @@ public class DataBaseHelper extends AsyncTask<Void, Void, Void> {
 //                    MoreDetailsActivity.moreDetailsCarList.add(moreDetails);
 //                    MainActivity.mdMain = moreDetails;
                     carInfo.moreDetailsCarList.add(moreDetails);
+                    carInfoFragment.moreDetailsCarList.add(moreDetails);
 //                    MainActivity.moreDetailsCarList.add(moreDetails);
                 }
             } catch (JSONException e) {

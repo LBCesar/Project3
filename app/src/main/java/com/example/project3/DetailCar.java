@@ -29,6 +29,9 @@ public class DetailCar implements Serializable {
     public String vehicle_url;
     public String vin_number;
 
+    public String myUrl;
+
+
     // An empty constructor
     public DetailCar(){ }
 
