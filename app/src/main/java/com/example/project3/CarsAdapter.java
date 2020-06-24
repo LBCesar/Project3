@@ -83,12 +83,6 @@ public class CarsAdapter extends RecyclerView.Adapter<CarsAdapter.ViewHolder> {
                     String makeURL = "https://thawing-beach-68207.herokuapp.com/cars/" + url_ID;
                     DataBaseHelper dbh4 = new DataBaseHelper(777, makeURL, 777);
                     dbh4.execute();
-//                    try {
-//                        dbh4.execute().get();
-//                    } catch (ExecutionException | InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-
                     carInfoFragment fragment=carInfoFragment.newInstance(co);
                     ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
                             .replace(R.id.song_detail_container, fragment)

@@ -27,8 +27,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public static ArrayList<CarModel> carModelList = new ArrayList<>();
     public static ArrayList<DetailCar> detailCarList = new ArrayList<>();
     public static ArrayList<DetailCar> rvt = new ArrayList<>();
-    public static ArrayList<MoreDetails> moreDetailsCarList = new ArrayList<>();
-    public static MoreDetails mdMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,18 +125,4 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
     }
-
-
-    public void lastResort(int url_ID){
-        String makeURL = "https://thawing-beach-68207.herokuapp.com/cars/" + url_ID;
-        DataBaseHelper dbh4 = new DataBaseHelper(321, makeURL, 321);
-        //dbh4.execute();
-            try {
-                dbh4.execute().get();
-            } catch (ExecutionException | InterruptedException e) {
-                e.printStackTrace();
-            }
-
-    }
-
 } // end class MainActivity

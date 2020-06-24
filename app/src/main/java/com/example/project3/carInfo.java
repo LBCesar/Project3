@@ -47,7 +47,6 @@ public class carInfo extends AppCompatActivity {
             co = (DetailCar) getIntent().getSerializableExtra("myCar");
 
             makeModel.setText( co.vehicle_make + " _ " + co.model);
-//          price.setText("$ " + Double.toString(co.price));
             price.setText(co.getPrice());   // This will give the price in corrected formatted amount
             date.setText(co.vin_number);
             mileage.setText(" " + co.mileage + " miles");
@@ -66,7 +65,6 @@ public class carInfo extends AppCompatActivity {
         }
 
         moreDetailsCarList = new ArrayList<>();
-//      moreDetailsCarList.add(new MoreDetails());
 
         int url_ID = co.id;         // this id will be used for the url, must come from the 3rd link or array3 id
         String makeURL = "https://thawing-beach-68207.herokuapp.com/cars/" + url_ID;
@@ -77,7 +75,6 @@ public class carInfo extends AppCompatActivity {
             e.printStackTrace();
         }
 
-//        moreDetailsCarList.add(new MoreDetails());
         textView = findViewById(R.id.mdd);
         textView.setVisibility(TextView.INVISIBLE);
 
@@ -100,88 +97,3 @@ public class carInfo extends AppCompatActivity {
     }
 
 } // end carInfo class
-
-
-
-
-
-
-
-
-
-/* -------------------------------------------------------------------------------------------------
-/*
-    *For self only
-   Additional Testing stuff
- */
-
-/* -------------------------------------------------------------------------------------------------
-//int url_ID = 3484; // this id will be used for the url, must come from the 3rd link or array3 i
-//                    int url_ID=co.id;
-//                    String makeURL = "https://thawing-beach-68207.herokuapp.com/cars/" + url_ID;
-//                    DataBaseHelper dbh4 = new DataBaseHelper(321, makeURL, 321);
-//                    dbh4.execute();
-//                    try {
-//                        dbh4.execute().get();
-//                    } catch (ExecutionException e) {
-//                        e.printStackTrace();
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-//co.adder(MainActivity.moreDetailsCarList.get(0));
-//co.adder(MainActivity.mdMain);
-//co.adder2();
-
-
- */
-/* ------------------------------------------------------------------------------------------------
-//        moreDetailsCarList = new ArrayList<>();
-//        moreDetailsCarList.add(new MoreDetails());
-
-//        MoreDetails moreDetails = new MoreDetails();
-
-//        textView.setText(car1);
-
-// Frerrai 430 first one
-//        for (int i=0; i<moreDetailsCarList.size();i++){
-//            textView.setText(moreDetailsCarList.get(i).image_url);
-////            moreDetails = moreDetailsCarList.get(i);
-////            Log.d("myTag", moreDetails.vehicle_url);
-////            textView.setText(moreDetails.image_url);
-////            textView.setText(moreDetails.toString());
-//        }
-
- */
-
-
-/* -------------------------------------------------------------------------------------------------
-// spinner
-//        Spinner spinny = findViewById(R.id.spinny);
-//
-//        ArrayAdapter<MoreDetails> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, moreDetailsCarList);
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spinny.setAdapter(adapter);
-//
-//        StringBuilder shit = new StringBuilder();
-//        for (MoreDetails m: moreDetailsCarList){
-//            shit.append(m.image_url).append("\n");
-//        }
-//        textView.setText(shit.toString());
-
-
-
- */
-/* ------------------------------------------------------------------------------------------------
-         button for more detail
-        buttonMoreDetail = findViewById(R.id.btnMoreDetails);
-//        final String myID = (String) Id_for_btnDetail.getText().toString();
-
-        buttonMoreDetail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MoreDetailsActivity.class);
-//                intent.putExtra("id", myID);
-                startActivity(intent);
-            }
-        });
- */

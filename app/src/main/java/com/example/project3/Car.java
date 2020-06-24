@@ -35,7 +35,6 @@ public class Car {
     }
 
     public String toString(){
-//        return id + " " + make;
         return make;
     }
 

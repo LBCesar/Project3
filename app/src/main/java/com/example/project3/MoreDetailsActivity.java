@@ -25,24 +25,6 @@ public class MoreDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_more_details);
-
-//        Spinner s = findViewById(R.id.s);
-
-//        Intent intent = getIntent();
-//        String myID = intent.getStringExtra("id");
-
-//        moreDetailsCarList = new ArrayList<>();
-//        moreDetailsCarList.add(new MoreDetails());
-
-//        int url_ID = 3484; // this id will be used for the url, must come from the 3rd link or array3 id
-//        String makeURL = "https://thawing-beach-68207.herokuapp.com/cars/" + url_ID;
-//        DataBaseHelper dbh4 = new DataBaseHelper(321, makeURL, 321);
-//        dbh4.execute();
-
-        // testing using a spinner to see if the data is retrieved from the url
-//        ArrayAdapter<MoreDetails> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, moreDetailsCarList);
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        s.setAdapter(adapter);
     }
 }
 
@@ -226,10 +208,6 @@ class MoreDetails{
         return zipcode_id;
     }
 
-    public String stringer(){
-        return "Test";
-    }
-
     @Override
     public String toString() {
 //        return "More details about the car: \n" + "\n" +
@@ -237,30 +215,32 @@ class MoreDetails{
                 //"color_id: " + color_id + "\n" + "\n" +
                 //"content_local_url: '" + content_local_url + '\'' + "\n" + "\n" +
                 "created at: '" + created_at + '\'' + "\n" + "\n" +
-                "currency id: " + currency_id + "\n" + "\n" +
-                //"id: " + id + "\n" + "\n" +
-                //"image_local_url: '" + image_local_url + '\'' + "\n" + "\n" +
-                ///"image_url: '" + image_url + '\'' + "\n" + "\n" +
-                "is_active: '" + is_active + '\'' + "\n" + "\n" +
-                "mileage: " + mileage + "\n" + "\n" +
-                "onlinecardealer id: " + onlinecardealer_id + "\n" + "\n" +
-                //"price: " + price + "\n" + "\n" +
-                "seller address: '" + seller_address + '\'' + "\n" + "\n" +
-                "seller address locality: '" + seller_address_locality + '\'' + "\n" + "\n" +
-                "seller address region: '" + seller_address_region + '\'' + "\n" + "\n" +
-                "seller name: '" + seller_name + '\'' + "\n" + "\n" +
-                "seller telephone number: '" + seller_telnumber + '\'' + "\n" + "\n" +
-                "updated at: '" + updated_at + '\'' + "\n" + "\n" +
-                //"veh_description: '" + veh_description + '\'' + "\n" + "\n" +
-                //"vehicle_make_id: " + vehicle_make_id + "\n" + "\n" +
-                //"vehicle_model_id: " + vehicle_model_id + "\n" + "\n" +
-                "vehicle url: '" + vehicle_url + '\'' + "\n" + "\n" +
+                        "updated at: '" + updated_at + '\'' + "\n" + "\n" +
+                        //"currency id: " + currency_id + "\n" + "\n" +
+                        //"id: " + id + "\n" + "\n" +
+                        //"image_local_url: '" + image_local_url + '\'' + "\n" + "\n" +
+                        ///"image_url: '" + image_url + '\'' + "\n" + "\n" +
+                        //"is active: '" + is_active + '\'' + "\n" + "\n" +
+                        "mileage: " + mileage + "\n" + "\n" +
+                        //"onlinecardealer id: " + onlinecardealer_id + "\n" + "\n" +
+                        //"price: " + price + "\n" + "\n" +
+                        "seller address: '" + seller_address + '\'' + "\n" + "\n" +
+                        "seller address locality: '" + seller_address_locality + '\'' + "\n" + "\n" +
+                        "seller address region: '" + seller_address_region + '\'' + "\n" + "\n" +
+                        "seller name: '" + seller_name + '\'' + "\n" + "\n" +
+                        "seller telephone number: '" + seller_telnumber + '\'' + "\n" + "\n" +
+                        "zipcode: " + zipcode_id + "\n" + "\n" +
+                        "is active: '" + is_active + '\'' + "\n" + "\n" +
+                        //"updated at: '" + updated_at + '\'' + "\n" + "\n" +
+                        //"veh_description: '" + veh_description + '\'' + "\n" + "\n" +
+                        //"vehicle_make_id: " + vehicle_make_id + "\n" + "\n" +
+                        //"vehicle_model_id: " + vehicle_model_id + "\n" + "\n" +
+                        "vehicle url: '" + vehicle_url + '\'' + "\n" + "\n" +
 
-                        "content url: '" + content_url + '\'' + "\n" + "\n" +
+                        "content url: '" + content_url + '\'' + "\n" + " ";
 
-                        //"vin_number: '" + vin_number + '\'' + "\n" + "\n" +
-                "zipcode: " + zipcode_id + "\n" + "\n" + ' ';
-//        return image_url;
+        //"vin_number: '" + vin_number + '\'' + "\n" + "\n" +
+        //"zipcode: " + zipcode_id + "\n" + "\n" + ' ';
     }
 
 } // end MoreDetail class

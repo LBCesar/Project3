@@ -43,7 +43,6 @@ public class carInfoFragment extends Fragment {
         carInfoFragment fragment = new carInfoFragment();
         Bundle args = new Bundle();
         args.putSerializable(ARG_PARAM1, param1);
-        //args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -110,34 +109,3 @@ public class carInfoFragment extends Fragment {
     }
 
 }  // end class
-
-
-
-
-
-
-
-
-//-------------------------------------------------------------------------------------------------------------
-/*              Testing Stuff (failed, line 106-2_)
-
-//            final ArrayList<MoreDetails> moreDetailsCarList;
-//        moreDetailsCarList.add(new MoreDetails());
-//        moreDetailsCarList = new ArrayList<>();
-//
-//
-//            int url_ID = co.id; // this id will be used for the url, must come from the 3rd link or array3 id
-//            String makeURL = "https://thawing-beach-68207.herokuapp.com/cars/" + url_ID;
-//            DataBaseHelper dbh4 = new DataBaseHelper(777, makeURL, 777);
-//            try {
-//                dbh4.execute().get();
-//            } catch (ExecutionException | InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//            moreDetailsCarList = new ArrayList<>();
-//
-//            moreDetailsCarList= carInfo.moreDetailsCarList;
-//            moreDetailsCarList.addAll(carInfo.moreDetailsCarList);
-//            moreDetailsCarList.add(new MoreDetails());
-//            moreDetailsCarList.addAll(MainActivity.moreDetailsCarList);
- */

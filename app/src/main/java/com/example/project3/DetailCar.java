@@ -76,16 +76,10 @@ public class DetailCar implements Serializable {
     }
 
     public String getPrice() {
-//        return price;
         return NumberFormat.getCurrencyInstance(new Locale("en", "US"))
                 .format(price);
     }
 
-//    public double getPrice() {
-////        return price;
-//        return NumberFormat.getCurrencyInstance(new Locale("en", "US"))
-//                .format(price);
-//    }
 
     public String getVeh_description() {
         return veh_description;
@@ -101,14 +95,6 @@ public class DetailCar implements Serializable {
 
     public String getVin_number() {
         return vin_number;
-    }
-    public void adder(MoreDetails md){
-        //veh_description=veh_description+md.toString();
-        veh_description=veh_description+md.stringer();
-    }
-    public void adder2(){
-        //veh_description=veh_description+md.toString();
-        veh_description=veh_description+"md.stringer()\nTEST===\n";
     }
 
     @Override
