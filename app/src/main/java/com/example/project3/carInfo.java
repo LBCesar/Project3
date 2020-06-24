@@ -45,11 +45,11 @@ public class carInfo extends AppCompatActivity {
 
         if ((DetailCar) getIntent().getSerializableExtra("myCar") != null) {
             co = (DetailCar) getIntent().getSerializableExtra("myCar");
-
-            int url_ID = co.id; // this id will be used for the url, must come from the 3rd link or array3 id
-            String makeURL = "https://thawing-beach-68207.herokuapp.com/cars/" + url_ID;
-            DataBaseHelper dbh4 = new DataBaseHelper(321, makeURL, 321);
-            dbh4.execute();
+//
+//            int url_ID = co.id; // this id will be used for the url, must come from the 3rd link or array3 id
+//            String makeURL = "https://thawing-beach-68207.herokuapp.com/cars/" + url_ID;
+//            DataBaseHelper dbh4 = new DataBaseHelper(321, makeURL, 321);
+//            dbh4.execute();
 //            try {
 //                dbh4.execute().get();
 //            } catch (ExecutionException | InterruptedException e) {

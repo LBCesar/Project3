@@ -29,7 +29,7 @@ public class carInfoFragment extends Fragment {
     private ImageView carPic;
 
     private TextView textView;
-    public static ArrayList<MoreDetails> moreDetailsCarList;
+    public static ArrayList<MoreDetails> moreDetailsCarList=new ArrayList<>();
 
     private DetailCar mParam1;
     private String mParam2;
@@ -56,6 +56,10 @@ public class carInfoFragment extends Fragment {
             mParam1 = (DetailCar) getArguments().getSerializable(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
             co = mParam1;
+//            int url_ID = co.id; // this id will be used for the url, must come from the 3rd link or array3 id
+//            String makeURL = "https://thawing-beach-68207.herokuapp.com/cars/" + url_ID;
+//            DataBaseHelper dbh4 = new DataBaseHelper(321, makeURL, 321);
+//            dbh4.execute();
 //
 //
 //            int url_ID = co.id; // this id will be used for the url, must come from the 3rd link or array3 id
@@ -104,23 +108,26 @@ public class carInfoFragment extends Fragment {
             }
            // final ArrayList<MoreDetails> moreDetailsCarList;
 //        moreDetailsCarList.add(new MoreDetails());
-         moreDetailsCarList = new ArrayList<>();
+
+
+
+            //moreDetailsCarList = new ArrayList<>();
 //
 //
-            int url_ID = co.id; // this id will be used for the url, must come from the 3rd link or array3 id
-            String makeURL = "https://thawing-beach-68207.herokuapp.com/cars/" + url_ID;
-            DataBaseHelper dbh4 = new DataBaseHelper(321, makeURL, 321);
-            try {
-                dbh4.execute().get();
-            } catch (ExecutionException | InterruptedException e) {
-                e.printStackTrace();
-            }
+//            int url_ID = co.id; // this id will be used for the url, must come from the 3rd link or array3 id
+//            String makeURL = "https://thawing-beach-68207.herokuapp.com/cars/" + url_ID;
+//            DataBaseHelper dbh4 = new DataBaseHelper(777, makeURL, 777);
+//            try {
+//                dbh4.execute().get();
+//            } catch (ExecutionException | InterruptedException e) {
+//                e.printStackTrace();
+//            }
             //moreDetailsCarList = new ArrayList<>();
 
            // moreDetailsCarList= carInfo.moreDetailsCarList;
             //moreDetailsCarList.addAll(carInfo.moreDetailsCarList);
-            moreDetailsCarList.add(new MoreDetails());
-
+            //moreDetailsCarList.add(new MoreDetails());
+           // moreDetailsCarList.addAll(MainActivity.moreDetailsCarList);
             textView = root.findViewById(R.id.mddBIG);
 //        textView.setText(moreDetailsCarList.get(0).toString() + "sakldnalk");
 
